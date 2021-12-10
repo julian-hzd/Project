@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project.Models;
 
 namespace Project
 {
@@ -20,9 +21,23 @@ namespace Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+        private Supplier supplier=new Supplier();
+        //private string[] suppliers;
+        private string[] suppliers = { "Canada", "USA", "Other" };
         public MainWindow()
         {
             InitializeComponent();
+            LoadSuppliers();
+
+            //Binding
+            cmbSuppliers.ItemsSource = supplier.GetSuppliers();
+        }
+        private void LoadSuppliers()            //In case class supplier class fails
+        {
+            string[] temp = Data.GetSuppliers();
+            if (temp != null)
+                suppliers = temp;
         }
     }
 }

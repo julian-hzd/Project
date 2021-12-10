@@ -6,7 +6,63 @@
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" HorizontalAlignment="Center">
+            <TextBlock Text="Inventory Tracker" FontSize="32" FontWeight="Bold"  Margin="0,20,0,20"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="10">
+            <TextBlock Text="Item Name" FontWeight="Bold"  Margin="0,0,5,5" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtName" Width="150" Margin="0,0,0,5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10">
+            <TextBlock Text="Quantity" FontWeight="Bold"  Margin="0,0,5,5" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txt4Name" Width="150" Margin="0,0,0,5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10">
+            <TextBlock Text="Supplier" FontWeight="Bold"  Margin="0,0,5,5" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cmbSuppliers" Grid.Column="0" Grid.Row="3" Width="150" Margin="0,0,0,5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="10">
+            <TextBlock Text="Item Name" FontWeight="Bold"  Margin="0,0,5,5" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtNa2me" Width="150" Margin="0,0,0,5"/>
+        </StackPanel>
+
+        <Button Content="Add" Width="100" Margin="35,20,5,0" Grid.Column="0" Grid.Row="5" FontWeight="Bold"  HorizontalAlignment="Left"/>
+
+        <!-- 
+        <TextBlock Text="Quantity" FontWeight="Bold" Grid.Column="0" Grid.Row="2" Margin="0,0,5,5" HorizontalAlignment="Center"/>
+        <TextBox x:Name="txtEmail" Grid.Column="1" Grid.Row="3" Width="150" Margin="0,0,0,5"/>
+        
+         
+
+
+        <TextBlock Text="Supplier drop down" FontWeight="Bold" Grid.Column="2" Grid.Row="2" Margin="0,0,5,5" HorizontalAlignment="Center"/>
+        <ComboBox x:Name="cmbCountries" Grid.Column="0" Grid.Row="3" Width="150" Margin="0,0,0,5"/>
+
+
+        <TextBlock Text="Category" FontWeight="Bold" Grid.Column="0" Grid.Row="2" Margin="0,0,5,5" HorizontalAlignment="Center"/>
+
+
+        <Button Content="Submit" Width="100" Margin="0,0,5,0" Grid.Column="0" Grid.Row="3" FontWeight="Bold" Click="btnSubmit_Click" VerticalAlignment="Top"/>-->
+
     </Grid>
 </Window>
