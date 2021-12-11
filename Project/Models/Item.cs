@@ -49,7 +49,7 @@ namespace Project.Models
         private string GetRandomLocation()
         {
             Random rnd = new Random();
-            const int MIN_ISLE = 1, MAX_ISLE = 25;
+            const int MIN_ISLE = 1, MAX_ISLE = 25;  //hello
 
             int randomIsle = rnd.Next(MIN_ISLE, MAX_ISLE);
             return $"Isle number {randomIsle}";
