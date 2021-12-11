@@ -25,7 +25,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <!--Tittle-->
+        <!--Title-->
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" HorizontalAlignment="Center">
             <TextBlock Foreground="Snow" Text="Inventory Tracker" FontSize="32" FontWeight="Bold"  Margin="0,20,0,20"/>
         </StackPanel>
@@ -58,7 +58,7 @@
         </StackPanel>
 
         <!--Add item button-->
-        <Button Click="btn_Click" Content="Add" Width="100" Margin="35,20,5,0" Grid.Column="0" Grid.Row="5" FontWeight="Bold"  HorizontalAlignment="Left"/>
+        <Button Click="btn_Click" Content="Add" Width="100" Margin="25,20,5,0" Grid.Column="0" Grid.Row="5" FontWeight="Bold"  HorizontalAlignment="Left"/>
 
         <!--Item display-->
         <ListBox Background="Transparent" x:Name="lbItem" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="5"  Margin="0,0,40,0">

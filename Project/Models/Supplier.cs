@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Project.Models
 {
-    
+
     internal class Supplier
     {
         private enum suppliersName
         {
-            Costco, Walmart, Abc, Super_C, Maxi, IGA, Marche_Euro
+            Abc, Adonis, Costco, Euro_Marche, IGA, Maxi, Metro, Provigo, Super_C, Walmart
         }
+
         private static int numberOfSuppliers = Enum.GetNames(typeof(suppliersName)).Length; //Enum length
         private List<string> suppliers = new List<string>(numberOfSuppliers);
+
         public Supplier()
         {
             PopulateSuppliersList();
