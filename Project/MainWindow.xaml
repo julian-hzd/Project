@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="GhostWhite">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/snowman.jpg" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -24,40 +27,41 @@
         
         <!--Tittle-->
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" HorizontalAlignment="Center">
-            <TextBlock Text="Inventory Tracker" FontSize="32" FontWeight="Bold"  Margin="0,20,0,20"/>
+            <TextBlock Foreground="Snow" Text="Inventory Tracker" FontSize="32" FontWeight="Bold"  Margin="0,20,0,20"/>
         </StackPanel>
 
         <!--Item Name field-->
         <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Item Name" FontWeight="Bold"  Margin="0,0,5,5" HorizontalAlignment="Center"/>
-            <TextBox x:Name="txtName" Width="150" Margin="0,0,0,5"/>
+            <TextBlock Text="Item Name" Foreground="Sienna" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtName" Width="150" Margin="0,5,0,0"/>
         </StackPanel>
 
         <!--Item quantity field-->
         <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Quantity" FontWeight="Bold"  Margin="0,0,5,5" HorizontalAlignment="Center"/>
-            <TextBox x:Name="qtyNumber" Width="150" Margin="0,0,0,5"/>
+            <TextBlock Text="Quantity" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="qtyNumber" Width="150" Margin="0,5,0,0"/>
         </StackPanel>
 
         <!--Suppliers drop-down list--> 
         <StackPanel  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Supplier" FontWeight="Bold"  Margin="0,0,5,5" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cmbSuppliers" BorderBrush="Aquamarine" Focusable="True" 
-                       Cursor="Hand" Foreground="DarkRed" Grid.Column="0" 
-                      Grid.Row="3" Width="150" Margin="0,0,0,5"/>
+            <TextBlock Text="Supplier" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cmbSuppliers" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
         </StackPanel>
+        
+        
 
         <!--To be determined-->
-        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Item Name" FontWeight="Bold"  Margin="0,0,5,5" HorizontalAlignment="Center"/>
-            <TextBox x:Name="txtNa2me" Width="150" Margin="0,0,0,5"/>
+        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" Margin="10">
+            <TextBlock Text="Categories" HorizontalAlignment="Center"/>
+            <ComboBox Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
+            
         </StackPanel>
 
         <!--Add item button-->
         <Button Click="btn_Click" Content="Add" Width="100" Margin="35,20,5,0" Grid.Column="0" Grid.Row="5" FontWeight="Bold"  HorizontalAlignment="Left"/>
 
         <!--Item display-->
-        <ListBox Background="White" x:Name="lbItem" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="0,0,40,0">
+        <ListBox Background="Transparent" x:Name="lbItem" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="5"  Margin="0,0,40,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>

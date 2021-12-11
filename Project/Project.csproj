@@ -101,5 +101,35 @@
   <ItemGroup>
     <Folder Include="Images\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="op2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="op3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="op4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="op5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="aurora-g4e05fe761_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="snowman-ge3a708d01_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="christmas-tree-g1a6146756_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="snowman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="moon-g16a66c7ee_1280.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
