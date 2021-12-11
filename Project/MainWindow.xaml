@@ -27,24 +27,24 @@
         
         <!--Title-->
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" HorizontalAlignment="Center">
-            <TextBlock Foreground="Snow" Text="Inventory Tracker" FontSize="32" FontWeight="Bold"  Margin="0,20,0,20"/>
+            <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold"  Margin="0,20,0,20"/>
         </StackPanel>
 
         <!--Item Name field-->
         <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Item Name" Foreground="Sienna" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBlock Text="Item Name" FontSize="14" Foreground="PowderBlue" FontWeight="DemiBold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
             <TextBox x:Name="txtName" Width="150" Margin="0,5,0,0"/>
         </StackPanel>
 
         <!--Item quantity field-->
         <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Quantity" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBlock Text="Quantity" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
             <TextBox x:Name="qtyNumber" Width="150" Margin="0,5,0,0"/>
         </StackPanel>
 
         <!--Suppliers drop-down list--> 
         <StackPanel  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Supplier" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBlock Text="Supplier" FontSize="14" Foreground="MediumAquamarine" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
             <ComboBox x:Name="cmbSuppliers" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
         </StackPanel>
         
@@ -52,8 +52,8 @@
 
         <!--To be determined-->
         <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" Margin="10">
-            <TextBlock Text="Categories" HorizontalAlignment="Center"/>
-            <ComboBox Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
+            <TextBlock Text="Categories" FontSize="14" Foreground="Orchid" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cmbCategories" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
             
         </StackPanel>
 

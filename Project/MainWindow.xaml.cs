@@ -23,22 +23,27 @@ namespace Project
     {
         
         private Supplier _supplier=new Supplier();
-        private string[] _suppliers;
+        private string[] _suppliers;                            // In case the class fails
+
         private Inventory _inventory = new Inventory();
+        private string[] _categories;                            // In case class fails
         public MainWindow()
         {
             InitializeComponent();
-            
 
-            //Binding
-            cmbSuppliers.ItemsSource = _supplier.GetSuppliers();
-            lbItem.ItemsSource = _inventory.Items;
+            // Binding
+            //cmbSuppliers.ItemsSource = _supplier.GetSuppliers();            // Supplier
+            //cmbCategories.ItemsSource = Category.CategoryInArr();           // Catergoeis
 
-            //lbItem.ItemsSource = item;
-            if (cmbSuppliers.ItemsSource == null)
+            if (cmbSuppliers.ItemsSource == null)                           // If null = binding fail
             {
                 LoadSuppliers();
                 cmbSuppliers.ItemsSource = _suppliers; 
+            }
+            if (cmbCategories.ItemsSource == null)
+            {
+                LoadCategories();
+                cmbCategories.ItemsSource = _categories;
             }
         }
         private void LoadSuppliers()            // In case class supplier class fails, read from file at . level to get suplpiers
@@ -47,7 +52,12 @@ namespace Project
             if (temp != null)
                 _suppliers = temp;
         }
-
+        private void LoadCategories()            // In case class supplier class fails, read from file at . level to get suplpiers
+        {
+            string[] temp = Data.GetCategories().Split(',');
+            if (temp != null)
+                _categories = temp;
+        }
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             if (CheckItemFields())
