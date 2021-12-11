@@ -33,6 +33,7 @@ namespace Project
             //Binding
             cmbSuppliers.ItemsSource = _supplier.GetSuppliers();
             lbItem.ItemsSource = _inventory.Items;
+
             //lbItem.ItemsSource = item;
             if (cmbSuppliers.ItemsSource == null)
             {

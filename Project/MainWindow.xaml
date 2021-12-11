@@ -61,7 +61,9 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                        <TextBlock Text="{Binding }" /> <!--Figure out-->
+                        <TextBlock Text="{Binding  ItemName}" Foreground="Blue" /> <!--Figure out-->
+                        <TextBlock Text=" | " FontWeight="Bold" />
+                        <TextBlock Text="{Binding  ItemQty}" /> <!--Figure out-->
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
