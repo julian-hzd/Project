@@ -18,6 +18,7 @@ namespace Project.Models
         private static int _itemQty;
         private Supplier _supplier;
         private string _location;
+        public Item() { }
         public Item(string itemName, string category)
         {
             _itemName = itemName;
@@ -26,6 +27,11 @@ namespace Project.Models
             _location = RandomLocation();
         }
 
+        public string ItemName
+        {
+            get { return _itemName; }                           //No need to validate, it was already validate on the main window
+            set { _itemName = value; }
+        }
         public int ItemQty
         {
             get { return _itemQty; }

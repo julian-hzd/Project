@@ -9,13 +9,13 @@ namespace Project.Models
 {
     internal class Data
     {
-        public static string[] GetSuppliers(string fileName = "./Countries.txt")
+        public static string GetSuppliers(string fileName = "./Suppliers.txt")
         {
             if (File.Exists(fileName))
             {
                 try
                 {
-                    return File.ReadAllLines(fileName);
+                    return File.ReadAllText(fileName);
                 }
                 catch (Exception)
                 {
