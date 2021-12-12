@@ -7,11 +7,6 @@ using Project.Models;
 
 namespace Project.Models
 {
-    private enum categories
-    {
-        Pantry, Diary, Drinks, Frozen, Food,
-        Fruit_and_Vegetable, Bakery, Cleaning_Supplies, Other
-    }
     internal class Item
     {
         private string _itemName;
