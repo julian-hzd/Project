@@ -140,10 +140,16 @@ namespace Project
         {
 
             Item temp = lbItems.SelectedItem as Item;  
+            
             if (temp != null)
             {
-                _inventory.RemoveItem(temp);
-                lbItems.Items.Refresh();
+                if (temp.ItemQty != Item._minQty)                           // Not sure if this should be here
+                {
+                    _inventory.RemoveItem(temp);
+                    lbItems.Items.Refresh();
+                }
+                else
+                    MessageBox.Show("The minimum quantity is 1");
             }
         }
     }

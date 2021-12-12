@@ -11,7 +11,7 @@ namespace Project.Models
     {
         private string _itemName;
         private int _itemQty;
-        private static int _minQty = 1; //static since it's a common variable that we will want
+        public static int _minQty = 1; //static since it's a common variable that we will want  ;   public so main window can access to it
         private Supplier _supplier;
         private string _location;
         private string _category;
