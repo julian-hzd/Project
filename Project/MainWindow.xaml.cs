@@ -61,7 +61,7 @@ namespace Project
             if (temp != null)
                 _categories = temp;
         }
-        private void btn_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
             if (CheckItemFields())
             {
@@ -92,8 +92,10 @@ namespace Project
             {
                 if (CheckNumber(qtyNumber.Text))
                     missingFields.AppendLine("Quantity can't be negative");
+                if (int.Parse(qtyNumber.Text) == 0)
+                    missingFields.AppendLine("Minimum quantity is 1");
             }
-                        
+              
 
             if (string.IsNullOrEmpty(missingFields.ToString()))                     // if it is not empty, there are errors 
                 return true;
@@ -128,9 +130,10 @@ namespace Project
         {
             if (int.Parse(numString)<0)
                 return true;
+
             return false;
         }
-        private void editClick(object sender, RoutedEventArgs e)            //Not working properly the item edit, I asked aref
+        private void EditClick(object sender, RoutedEventArgs e)            //Not working properly the item edit, I asked aref
         {
             Item temp = lbItems.SelectedItem as Item;                       //List box is visitor so no need to check
             ItemEdit editItemWindow = new ItemEdit(temp);   
@@ -138,7 +141,7 @@ namespace Project
             lbItems.Items.Refresh();
         }
 
-        private void dlt_Click(object sender, RoutedEventArgs e)
+        private void Dlt_Click(object sender, RoutedEventArgs e)
         {
 
             Item temp = lbItems.SelectedItem as Item;  
@@ -155,7 +158,7 @@ namespace Project
             }
         }
         
-        private void qtyIncrease_Click(object sender, RoutedEventArgs e)
+        private void QtyIncrease_Click(object sender, RoutedEventArgs e)
         {
             Item temp = lbItems.SelectedItem as Item;
             if (temp == null)
@@ -166,7 +169,8 @@ namespace Project
                 lbItems.Items.Refresh();
             }
             
-        }private void qtyDecrease_Click(object sender, RoutedEventArgs e)
+        }
+        private void QtyDecrease_Click(object sender, RoutedEventArgs e)
         {
             Item temp = lbItems.SelectedItem as Item;
             if(temp==null)
@@ -177,6 +181,22 @@ namespace Project
                 lbItems.Items.Refresh();
             }          
 
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            _inventory.Items.Clear();
+            lbItems.Items.Refresh();
         }
     }
 }

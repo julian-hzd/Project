@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Project"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="470" Width="835">
-    <Grid>
+        Title="MainWindow" Height="470" Width="870">
+    <Grid  x:Name="grContent">
 
 
         <Grid.Background>
@@ -26,9 +26,10 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".35*" />
+            <ColumnDefinition Width=".40*" />
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width=".5*"/>
             <ColumnDefinition Width=".5*"/>
         </Grid.ColumnDefinitions>
 
@@ -57,7 +58,12 @@
             <ComboBox Cursor="Hand" x:Name="cmbSuppliers" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
         </StackPanel>
 
-
+        <!--Load Save-->
+        <Button Foreground="LightCoral" Click="Save_Click" Grid.Column="4" Grid.Row="6" Height="25" Width="70" Content="Save" Background="Azure" BorderBrush="Azure"/>
+        <Button Foreground="LightCoral" Click="Load_Click" Grid.Column="3" Grid.Row="6" Height="25" Width="70" Content="Load" Background="Azure" BorderBrush="Azure"/>
+        
+        <!--Clear-->
+        <Button Foreground="LightCoral" Click="Clear_Click" Grid.Column="4" Grid.Row="7" Height="25" Width="70" Content="Clear" Background="Azure" BorderBrush="Azure" Margin="0,10,0,0"/>
 
         <!--Categories drop-down list-->
         <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" Margin="10"><!--Orchid-->
@@ -65,12 +71,17 @@
             <ComboBox Cursor="Hand" x:Name="cmbCategories" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
         </StackPanel>
 
-        <!--Add, Delete, Edit-->
-        <Button Click="btn_Click" Content="Add" Width="100" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" Grid.Row="5" FontWeight="Bold"  HorizontalAlignment="Center"/>
-        <Button  Click="dlt_Click" Grid.Column="6" Grid.Row="0" Foreground="LightCoral" Background="Azure" Margin="0,10,0,0" BorderBrush="Azure" Content="Delete" FontWeight="Bold" Height="20" Width="70"/>
-        <Button  Click="editClick" Grid.Column="6" Grid.Row="0" VerticalAlignment="Bottom"  Foreground="LightCoral" Background="Azure" BorderBrush="Azure" FontWeight="Bold" Content="Edit" Height="20" Margin="0,10,0,0" Width="70"/>
-        <Button  Click="qtyIncrease_Click" Content="+" VerticalAlignment="Top" FontSize="25" Width="50" Height="30" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" />
-        <Button  Click="qtyDecrease_Click" Content="-" VerticalAlignment="Bottom" FontSize="25" Width="50" Height="30" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" />
+        <!--Add-->
+        <Button Click="Add_Click" Content="Add" Width="100" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" Grid.Row="6" FontWeight="Bold"  HorizontalAlignment="Center"/>
+
+        <!--Delete, Edit-->
+        <Button  Click="Dlt_Click" Grid.Column="4" Grid.Row="0" Foreground="LightCoral" Background="Azure" Margin="0,10,0,0" BorderBrush="Azure" Content="Delete" FontWeight="Bold" Height="20" Width="70"/>
+        <Button  Click="EditClick" Grid.Column="4" Grid.Row="0" VerticalAlignment="Bottom"  Foreground="LightCoral" Background="Azure" BorderBrush="Azure" FontWeight="Bold" Content="Edit" Height="20" Margin="0,10,0,0" Width="70"/>
+
+        <!--Increase, Decrease-->
+        <Button  Click="QtyIncrease_Click" Grid.Column="3" Grid.Row="0" Content="+" VerticalAlignment="Center" Margin="0,10,0,0"   Height="20" Width="70" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" />
+        <Button  Click="QtyDecrease_Click" Grid.Column="3" Grid.Row="0" Content="-" VerticalAlignment="Bottom"  Height="25" Width="70" Foreground="LightCoral" Background="Azure" Margin="0,10,0,0" BorderBrush="Azure" />
+        
         <!--Item display-->
         <ListBox x:Name="lbItems" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="6"  Margin="0,25,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListBox.ItemTemplate>
@@ -79,16 +90,21 @@
                     <WrapPanel Margin="30,2,0,0">
                         <TextBlock Grid.Column="2" Grid.Row="1"  Text="Item Name: " FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
                         <TextBlock Text="{ Binding  ItemName }" FontSize="14" Foreground="Aqua" />
+                        
                         <TextBlock Margin="20,0,0,0"/>
                         <TextBlock Text="| Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
                         <TextBlock Text="{Binding  ItemQty}" FontSize="14" Foreground="Turquoise"/>
                         <TextBlock Margin="20,0,0,0"/>
+                        
                         <TextBlock Text=" | Supplier: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
                         <TextBlock Text= "{Binding  SupplierString}" FontSize="14"  Foreground="SpringGreen"   />
                         <TextBlock Margin="20,0,0,0"/>
+                        
                         <TextBlock Text=" | Category: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
                         <TextBlock Text="{Binding CategoryString}" FontSize="14" Foreground="SpringGreen" />
-
+                        
+                        <TextBlock Text=" | Isle Number: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+                        <TextBlock Text="{Binding IsleNumber}" FontSize="14" Foreground="SpringGreen" />
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

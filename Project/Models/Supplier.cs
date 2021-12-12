@@ -22,6 +22,7 @@ namespace Project.Models
         {
             PopulateSuppliersList();
         }
+
         private void PopulateSuppliersList()
         {
             for (int i = 0; i < numberOfSuppliers; i++)
@@ -32,5 +33,6 @@ namespace Project.Models
             suppliers.Insert(0, "");                // "Null value", so it appears an empty option
             return suppliers.ToArray();
         }
+        
     }
 }
