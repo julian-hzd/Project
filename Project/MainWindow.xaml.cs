@@ -130,9 +130,10 @@ namespace Project
                 return true;
             return false;
         }
-        private void editClick(object sender, RoutedEventArgs e)
+        private void editClick(object sender, RoutedEventArgs e)            //Not working properly the item edit, I asked aref
         {
-
+            Item temp = lbItems.SelectedItem as Item;
+            //ItemEdit visitorsWindow = new ItemEdit(temp);
         }
 
         private void dlt_Click(object sender, RoutedEventArgs e)
