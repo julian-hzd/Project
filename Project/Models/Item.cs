@@ -7,7 +7,7 @@ using Project.Models;
 
 namespace Project.Models
 {
-    public enum categories
+    private enum categories
     {
         Pantry, Diary, Drinks, Frozen, Food,
         Fruit_and_Vegetable, Bakery, Cleaning_Supplies, Other
