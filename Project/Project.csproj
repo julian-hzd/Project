@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -69,6 +72,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\Item.cs" />
@@ -90,6 +94,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,38 +103,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="op2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="op3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="op4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="op5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="aurora-g4e05fe761_1280.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="snowman-ge3a708d01_1280.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="christmas-tree-g1a6146756_1280.jpg" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="snowman.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="moon-g16a66c7ee_1280.png" />
+    <Resource Include="Images\snowman.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

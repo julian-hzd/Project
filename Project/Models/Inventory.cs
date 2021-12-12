@@ -24,6 +24,7 @@ namespace Project.Models
         {
             _items.Remove(item);
         }
+
         /*
          Update item 
          General Report

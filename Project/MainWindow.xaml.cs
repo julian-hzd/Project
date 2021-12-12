@@ -23,22 +23,30 @@ namespace Project
     {
         
         private Supplier _supplier=new Supplier();
-        private string[] _suppliers;
+        private string[] _suppliers;                            // In case the class fails
+
         private Inventory _inventory = new Inventory();
+
+        private string[] _categories;                            // In case class fails
         public MainWindow()
         {
             InitializeComponent();
-            
 
-            //Binding
-            cmbSuppliers.ItemsSource = _supplier.GetSuppliers();
-            lbItem.ItemsSource = _inventory.Items;
+            // Binding
+            lbItems.ItemsSource= _inventory.Items; 
 
-            //lbItem.ItemsSource = item;
-            if (cmbSuppliers.ItemsSource == null)
+            cmbSuppliers.ItemsSource = _supplier.GetSuppliers();            // Supplier
+            cmbCategories.ItemsSource = Category.CategoryInArr();           // Catergoeis
+
+            if (cmbSuppliers.ItemsSource == null)                           // If null = binding fail
             {
                 LoadSuppliers();
                 cmbSuppliers.ItemsSource = _suppliers; 
+            }
+            if (cmbCategories.ItemsSource == null)
+            {
+                LoadCategories();
+                cmbCategories.ItemsSource = _categories;
             }
         }
         private void LoadSuppliers()            // In case class supplier class fails, read from file at . level to get suplpiers
@@ -47,33 +55,45 @@ namespace Project
             if (temp != null)
                 _suppliers = temp;
         }
-
+        private void LoadCategories()            // In case class supplier class fails, read from file at . level to get suplpiers
+        {
+            string[] temp = Data.GetCategories().Split(',');
+            if (temp != null)
+                _categories = temp;
+        }
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             if (CheckItemFields())
             {
                 _inventory.AddItem(GetItem());
-                lbItem.Items.Refresh(); 
+                lbItems.Items.Refresh(); 
             }
         }
 
-        private bool CheckItemFields()
+        private bool CheckItemFields()                                              // Combo boxes can be null
         {
+            bool numEntered = false;
             StringBuilder missingFields = new StringBuilder();
+
             if (string.IsNullOrEmpty(txtName.Text))
                 missingFields.AppendLine("Name is a required field");
 
             if (!ValidateItemName(txtName.Text))                                    // if name valid returns true, t & f = f
                 missingFields.AppendLine("Name can only contain letters");
 
+            if (string.IsNullOrEmpty(qtyNumber.Text))
+                 missingFields.AppendLine("Quantity is a required field");
+            else { numEntered = true; }
+
             if (!ValidateQty(qtyNumber.Text))                                       // Check that quantity are numbers
-                missingFields.AppendLine("Quantity: only numbers are accepted");
+                { missingFields.AppendLine("Quantity: only numbers are accepted"); numEntered = false; }
 
-            if(cmbSuppliers.SelectedIndex == -1)                                    //Returns -1 if empty
-                missingFields.AppendLine("A supplier must be selected");
-
-            if(string.IsNullOrEmpty(qtyNumber.Text))
-                missingFields.AppendLine("Quantity is a required field");
+            if(numEntered)                                                          // If a number is entered
+            {
+                if (CheckNumber(qtyNumber.Text))
+                    missingFields.AppendLine("Quantity can't be negative");
+            }
+                        
 
             if (string.IsNullOrEmpty(missingFields.ToString()))                     // if it is not empty, there are errors 
                 return true;
@@ -98,11 +118,22 @@ namespace Project
         }
         private Item GetItem()
         {
-            return new Item
+            return new Item(txtName.Text, int.Parse(qtyNumber.Text))
             {
-                ItemName = txtName.Text,
-                ItemQty = int.Parse(qtyNumber.Text)
+                SupplierString = cmbSuppliers.SelectedItem as string,            // To string crashes when value is null
+                CategoryString= cmbCategories.SelectedItem as string            
             };
+        }
+        private bool CheckNumber(string numString)
+        {
+            if (int.Parse(numString)<0)
+                return true;
+            return false;
+        }
+
+        private void lbItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
