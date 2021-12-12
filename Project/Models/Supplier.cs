@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Project.Models
 {
 
-    internal class Supplier
+    public class Supplier
     {
         private enum suppliersName
         {

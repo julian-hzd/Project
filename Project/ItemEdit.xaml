@@ -5,13 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        Title="ItemEdit" Height="450" Width="800">
+        Title="ItemEdit" Height="300" Width="450">
+    <!--<DataGrid>
+        --><!--<DataGrid x:Name="dgItems"  AutoGenerateColumns="False" EnableColumnVirtualization="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Item name" Binding="{Binding ItemName}"/>
+            </DataGrid.Columns>
+        </DataGrid>--><!--
+        <DataGrid x:Name="dgItems"
+    HorizontalAlignment="Left"
+              ItemsSource="{Binding Item}"
+    Margin="10,10,0,192" Width="481" AutoGenerateColumns="False">
+            <DataGrid.RowStyle>
+                <>
+            </DataGrid.RowStyle>
+        </DataGrid>
+    </DataGrid>-->
+    <!--<Grid x:Name="dgItems">
+        <DataGrid x:Name="dgItems" AutoGenerateColumns="False" IsReadOnly="False">
+            <DataGrid.Columns>
+                <
+                <DataGridTextColumn Header="Visitor Name" Binding="{Binding ItemName}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding ItemQty}"/>
+                <DataGridTextColumn Header="Country" Binding="{Binding Country}"/>
+                <DataGridTextColumn Header="Speaker" Binding="{Binding IsSpeaker}"/>
+                <DataGridTextColumn Header="Checkin Date" Binding="{Binding CheckInDate,StringFormat='ddd, MMM dd yyyy'}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding VisitorStatus}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Text="{Binding ItemName}" FontSize="20"></TextBlock>
+        <TextBlock DataContext="{Binding ItemName}" FontSize="20"></TextBlock>
+    </Grid>
+    
     <Grid>
-        <DataGrid x:Name="dgItems" >
-            <TextBlock Width="20" Text="{Binding ItemName}"></TextBlock>
-            <TextBlock Text="asd" FontSize="20"></TextBlock>
-            <TextBlock Text="asd"></TextBlock>
-            <TextBlock Text="asd"></TextBlock>
+        <DataGrid  Height="200" Width="500" HorizontalAlignment="Left" Margin="12,21,0,0" >
+            <TextBlock Text="{Binding ItemName}" FontSize="20"></TextBlock>
         </DataGrid>
     </Grid>
+    <StackPanel x:Name="dgItems">
+        <TextBox Text="asads"></TextBox>
+        <TextBox DataContext="{Binding ItemName}"></TextBox>
+        <TextBox Text="asads"></TextBox>
+    </StackPanel> -->
+    <StackPanel x:Name="dgItems" Width="250" Height="250">
+        <TextBlock Text="Item name" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Text="{Binding ItemName}" Margin="0,6,0,0" Width="100"></TextBox>
+        
+        <TextBlock Text="Quantity" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Text="{Binding ItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
+
+
+        <TextBlock Text="Supplier" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Text="{Binding SupplierString}" Margin="0,6,0,0" Width="100"></TextBox>
+        
+        <TextBlock Text="Category" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Text="{Binding CategoryString}" Margin="0,6,0,0" Width="100"></TextBox>
+
+        <TextBlock Text="Available Quantity" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Text="{Binding ItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
+        
+        <TextBlock Text="Isle location" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Text="{Binding IsleNumber}" Margin="0,6,0,0" Width="100"></TextBox>
+    </StackPanel>
 </Window>

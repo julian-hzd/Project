@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Project.Models;
-
 namespace Project
 {
     /// <summary>
@@ -20,12 +19,12 @@ namespace Project
     /// </summary>
     public partial class ItemEdit : Window
     {
-        /*
+        private Supplier _supplier = new Supplier();
         public ItemEdit(Item item)
         {
             InitializeComponent();
-            dgItems.ItemsSource=item;
+
+            dgItems.DataContext=item;
         }
-        */
     }
 }

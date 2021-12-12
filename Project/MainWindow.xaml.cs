@@ -132,8 +132,10 @@ namespace Project
         }
         private void editClick(object sender, RoutedEventArgs e)            //Not working properly the item edit, I asked aref
         {
-            Item temp = lbItems.SelectedItem as Item;
-            //ItemEdit visitorsWindow = new ItemEdit(temp);
+            Item temp = lbItems.SelectedItem as Item;                       //List box is visitor so no need to check
+            ItemEdit editItemWindow = new ItemEdit(temp);   
+            editItemWindow.ShowDialog();
+            lbItems.Items.Refresh();
         }
 
         private void dlt_Click(object sender, RoutedEventArgs e)
@@ -151,6 +153,30 @@ namespace Project
                 else
                     MessageBox.Show("The minimum quantity is 1");
             }
+        }
+        
+        private void qtyIncrease_Click(object sender, RoutedEventArgs e)
+        {
+            Item temp = lbItems.SelectedItem as Item;
+            if (temp == null)
+                MessageBox.Show("Please select an item");
+            else
+            {
+                temp.ItemQty++;
+                lbItems.Items.Refresh();
+            }
+            
+        }private void qtyDecrease_Click(object sender, RoutedEventArgs e)
+        {
+            Item temp = lbItems.SelectedItem as Item;
+            if(temp==null)
+                MessageBox.Show("Please select an item");
+          else if(temp.ItemQty!=1)
+            {
+                temp.ItemQty--;                                     //If button is clicked without selecting item, crashes fix, same above
+                lbItems.Items.Refresh();
+            }          
+
         }
     }
 }

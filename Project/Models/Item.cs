@@ -7,13 +7,13 @@ using Project.Models;
 
 namespace Project.Models
 {
-    internal class Item
+    public  class Item
     {
         private string _itemName;
         private int _itemQty;
         public static int _minQty = 1; //static since it's a common variable that we will want  ;   public so main window can access to it
         private Supplier _supplier;
-        private string _location;
+        private int _isleNumber;
         private string _category;
         private string _supplierString;                                                     // To achieve binding
         public Item(string itemName, int itemQty)                                           // For an item to be added at, the minimum requirements are name and quantity
@@ -55,6 +55,17 @@ namespace Project.Models
             get { return _supplier; }
             set { _supplier = value; }
         }
+        public int IsleNumber
+        {
+            get { return _isleNumber; }
+            set 
+            {
+                if (value < 0)
+                    throw new ArgumentException("Isles start from 0, negative values are not accepted");
+                
+                _isleNumber=value; 
+            }
+        }
         private int ValidateQty(int tempQty)
         {
             if (tempQty < 0)
@@ -62,14 +73,7 @@ namespace Project.Models
 
             return tempQty;
         }
-        private string GetRandomLocation()
-        {
-            Random rnd = new Random();
-            const int MIN_ISLE = 1, MAX_ISLE = 25;  
 
-            int randomIsle = rnd.Next(MIN_ISLE, MAX_ISLE);
-            return $"Isle number {randomIsle}";
-        }
         //Category logic/functionality not implemented
     }
 }
