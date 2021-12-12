@@ -20,7 +20,13 @@ namespace Project.Models
         private Supplier _supplier;
         private string _location;
         private string _category;
-        public Item() { }
+        private string _supplierString;                                                     // To achieve binding
+        public Item(string itemName, int itemQty)                                           // For an item to be added at, the minimum requirements are name and quantity
+        {
+            _itemName = itemName;
+            _itemQty = itemQty;
+        }
+        /*
         public Item(string itemName, string category, int itemQty)
         {
             _itemName = itemName;
@@ -28,7 +34,17 @@ namespace Project.Models
             _supplier = new Supplier();
             _location = GetRandomLocation();
         }
-
+        */
+        public string SupplierString                                                        // To achieve binding
+        {
+            get { return _supplierString; } 
+            set { _supplierString = value; }
+        }
+        public string CategoryString                                                        // To achieve binding
+        {
+            get { return _category; } 
+            set { _category = value; }
+        }
         public string ItemName
         {
             get { return _itemName; } //No need to validate, it was already validate on the main window
@@ -38,6 +54,11 @@ namespace Project.Models
         {
             get { return _itemQty; }
             set { _itemQty = ValidateQty(value); }
+        }
+        public Supplier Supplier
+        {
+            get { return _supplier; }
+            set { _supplier = value; }
         }
         private int ValidateQty(int tempQty)
         {

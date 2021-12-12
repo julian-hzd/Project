@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Project.Models
 {
-    internal static class Data
+    internal static class Data                                                      // Static, Utility class, no instances need to be created
     {
         public static string GetSuppliers(string fileName = "./Suppliers.txt")
         {

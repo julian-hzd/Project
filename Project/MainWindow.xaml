@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="/snowman.jpg" AlignmentY="Top" AlignmentX="Center"/>
+            <!--"-->
+            <ImageBrush Stretch="Fill" ImageSource="/Images/snowman.jpg" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -20,11 +22,14 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".5*" />
+            <ColumnDefinition Width=".3*" />
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
+
+
+
         <!--Title-->
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" HorizontalAlignment="Center">
             <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold"  Margin="0,20,0,20"/>
@@ -45,32 +50,47 @@
         <!--Suppliers drop-down list--> 
         <StackPanel  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10">
             <TextBlock Text="Supplier" FontSize="14" Foreground="MediumAquamarine" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cmbSuppliers" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
+            <ComboBox Cursor="Hand" x:Name="cmbSuppliers" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
         </StackPanel>
         
         
 
-        <!--To be determined-->
+        <!--Categories drop-down list-->
         <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" Margin="10">
-            <TextBlock Text="Categories" FontSize="14" Foreground="Orchid" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="cmbCategories" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
-            
+            <TextBlock  Text="Categories" FontSize="14" Foreground="Orchid" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <ComboBox Cursor="Hand" x:Name="cmbCategories" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="DarkRed"/>
         </StackPanel>
 
         <!--Add item button-->
         <Button Click="btn_Click" Content="Add" Width="100" Margin="25,20,5,0" Grid.Column="0" Grid.Row="5" FontWeight="Bold"  HorizontalAlignment="Left"/>
 
+        <TextBlock Text=" | Categories: " FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+
         <!--Item display-->
-        <ListBox Background="Transparent" x:Name="lbItem" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="5"  Margin="0,0,40,0">
+        <ListBox x:Name="lbItems" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="6"  Margin="0,25,20,0" d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <WrapPanel>
-                        <TextBlock Text="{Binding  ItemName}" Foreground="Blue" /> <!--Figure out-->
-                        <TextBlock Text=" | " FontWeight="Bold" />
-                        <TextBlock Text="{Binding  ItemQty}" /> <!--Figure out-->
+                    
+                    <WrapPanel Margin="30,2,0,0">
+                        <TextBlock Grid.Column="2" Grid.Row="1"  Text="Item Name: " FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+                        <TextBlock Text="{ Binding  ItemName }" FontSize="14" Foreground="Aqua" />
+                        <TextBlock Margin="20,0,0,0"/>
+                        <TextBlock Text="| Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+                        <TextBlock Text="{Binding  ItemQty}" FontSize="14" Foreground="Turquoise"/>
+                        <TextBlock Margin="20,0,0,0"/>
+                        <TextBlock Text=" | Supplier: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+                        <TextBlock Text= "{Binding  SupplierString}" FontSize="14"  Foreground="SpringGreen"   />
+                        <TextBlock Margin="20,0,0,0"/>
+                        <TextBlock Text=" | Supplier: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+                        <TextBlock Text="{Binding CategoryString}" FontSize="14" Foreground="SpringGreen" />
+                        <fa:FontAwesome Margin="20,0,0,0" Icon="Pencil" FontSize="15" Foreground="Snow" VerticalAlignment="Center"/>
+                        <fa:FontAwesome Margin="20,0,0,0" Icon="Close" FontSize="15" Foreground="Snow" VerticalAlignment="Center"/>
+
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+
     </Grid>
 </Window>
