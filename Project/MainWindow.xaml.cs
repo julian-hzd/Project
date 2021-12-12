@@ -130,10 +130,20 @@ namespace Project
                 return true;
             return false;
         }
-
-        private void lbItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void editClick(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void dlt_Click(object sender, RoutedEventArgs e)
+        {
+
+            Item temp = lbItems.SelectedItem as Item;  
+            if (temp != null)
+            {
+                _inventory.RemoveItem(temp);
+                lbItems.Items.Refresh();
+            }
         }
     }
 }

@@ -70,27 +70,6 @@ namespace Project.Models
             int randomIsle = rnd.Next(MIN_ISLE, MAX_ISLE);
             return $"Isle number {randomIsle}";
         }
-        public static string[] CategoriesToArray()
-        {
-            /* Fix _ <- and merhaps move this and all about category to its class
-            string[] valuesAsArray = Enum.GetNames(typeof(categories));
-            for (int i = 0; i < valuesAsArray.Length; i++)
-            {
-                string temp = valuesAsArray[i];
-                for (int k = 0; k < valuesAsArray[i].Length; k++)
-                {
-                    
-                     temp[k]=valuesAsArray[i][k];
-                    if (valuesAsArray[i][k] == '_')
-                    {
-                        //valuesAsArray[i][k] = " ";
-                    }                       
-                }
-            }
-            return valuesAsArray;
-            */
-            return Enum.GetNames(typeof(categories)); ;
-        }
         //Category logic/functionality not implemented
     }
 }
