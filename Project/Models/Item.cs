@@ -43,7 +43,7 @@ namespace Project.Models
         }
         public Category Category
         {
-            get { return _category; }
+            get { return _category; }//
             set { _category = value; }
         }
         public string SupplierString                                                        // To achieve binding
