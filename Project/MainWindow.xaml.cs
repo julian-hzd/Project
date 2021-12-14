@@ -148,7 +148,7 @@ namespace Project
             
             if (temp != null)
             {
-                if (temp.ItemQty != temp.MinItemQty)                           // Not sure if this should be here
+                if (temp.ItemQty != Item.MINQTY)                           // Not sure if this should be here
                 {
                     _inventory.RemoveItem(temp);
                     lbItems.Items.Refresh();

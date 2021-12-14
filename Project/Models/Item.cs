@@ -9,7 +9,8 @@ namespace Project.Models
 {
     public  class Item
     {
-        public const int MINQTY = 1;                                                  //static since it's a common variable that we will want  ;   public so main window can access to it
+        public static int MINQTY = 1;                                                  //static since it's a common variable that we will want  ;   public so main window can access to it
+        
         private int _minItemQty;
         private static int maxIsle=100;
         private string _itemName;
