@@ -9,7 +9,7 @@ namespace Project.Models
 
     public class Supplier
     {
-        private enum suppliersName
+        private enum suppliersName//asd
         {
             Adonis, Costco, Euro_Marche, IGA, Maxi, Metro, Provigo, Super_C, Walmart
         }
