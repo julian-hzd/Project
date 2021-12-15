@@ -1,0 +1,35 @@
+﻿<Window x:Class="Project.AddItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project"
+        mc:Ignorable="d"
+        Title="AddItem" Height="450" Width="800">
+    <Grid>
+        <!--Item Name field-->
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="0,190,0,0">
+            <TextBlock Text="Item Name" FontSize="14" Foreground="Black" FontWeight="DemiBold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtName" Width="150" Margin="0,5,0,0"/>
+        </StackPanel>
+
+        <!--Item quantity field-->
+        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10">
+            <TextBlock Text="Quantity" FontSize="14" Foreground="Black" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="qtyNumber" Width="150" Margin="0,5,0,0"/>
+        </StackPanel>
+
+        <!--Suppliers drop-down list-->
+        <StackPanel  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="0,100,0,0">
+            <TextBlock Text="Supplier" FontSize="14" Foreground="MediumAquamarine" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <ComboBox Cursor="Hand" x:Name="cmbSuppliers" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
+        </StackPanel>
+
+        <!--Categories drop-down list-->
+        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" Margin="10">
+            <!--Orchid-->
+            <TextBlock  Text="Categories" FontSize="14" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <ComboBox Cursor="Hand" x:Name="cmbCategories" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
+        </StackPanel>
+    </Grid>
+</Window>

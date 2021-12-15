@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="470" Width="870">
+        Title="MainWindow" Height="470" Width="940">
     <Grid  x:Name="grContent">
 
 
@@ -15,88 +15,63 @@
             <ImageBrush Stretch="Fill" ImageSource="/Images/snowman.jpg" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".2*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".40*" />
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width=".2*" />
             <ColumnDefinition Width=".5*"/>
             <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".2*"/>
         </Grid.ColumnDefinitions>
 
 
 
         <!--Title-->
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="5" HorizontalAlignment="Center">
-            <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold"  Margin="0,20,0,20"/>
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Margin="240,0,0,0" HorizontalAlignment="Center">
+            <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold" />
         </StackPanel>
 
-        <!--Item Name field-->
-        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Item Name" FontSize="14" Foreground="PowderBlue" FontWeight="DemiBold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="txtName" Width="150" Margin="0,5,0,0"/>
-        </StackPanel>
-
-        <!--Item quantity field-->
-        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Quantity" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="qtyNumber" Width="150" Margin="0,5,0,0"/>
-        </StackPanel>
-
-        <!--Suppliers drop-down list-->
-        <StackPanel  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10">
-            <TextBlock Text="Supplier" FontSize="14" Foreground="MediumAquamarine" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
-            <ComboBox Cursor="Hand" x:Name="cmbSuppliers" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
-        </StackPanel>
-
+       
+        
         <!--Load Save-->
         <Button Foreground="LightCoral" Click="Save_Click" Grid.Column="4" Grid.Row="6" Height="25" Width="70" Content="Save" Background="Azure" BorderBrush="Azure"/>
-        <Button Foreground="LightCoral" Click="Load_Click" Grid.Column="3" Grid.Row="6" Height="25" Width="70" Content="Load" Background="Azure" BorderBrush="Azure"/>
-        
-        <!--Clear-->
-        <Button Foreground="LightCoral" Click="Clear_Click" Grid.Column="4" Grid.Row="7" Height="25" Width="70" Content="Clear" Background="Azure" BorderBrush="Azure" Margin="0,10,0,0"/>
+        <Button Foreground="Crimson" Click="Load_Click" Grid.Column="3" Grid.Row="6" Height="25" Width="70" Content="Load" Background="Azure" BorderBrush="Azure"/>
 
-        <!--Categories drop-down list-->
-        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" Margin="10"><!--Orchid-->
-            <TextBlock  Text="Categories" FontSize="14" Foreground="Orchid" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <ComboBox Cursor="Hand" x:Name="cmbCategories" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
-        </StackPanel>
+        <!--Clear-->
+        <Button Foreground="Crimson" Click="Clear_Click" Grid.Column="3" Grid.Row="7"  Height="20"  Width="70" FontWeight="Bold" Content="Clear" Background="Azure" BorderBrush="Azure" VerticalAlignment="Center"/>
+
 
         <!--Add-->
-        <Button Click="Add_Click" Content="Add" Width="100" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" Grid.Row="6" FontWeight="Bold"  HorizontalAlignment="Center"/>
+        <Button Click="Add_Click" Content="Add"  Height="20" Width="70" Foreground="Crimson" Background="Azure" BorderBrush="Azure" Grid.Row="7" Grid.Column="1" FontWeight="Bold"  HorizontalAlignment="Center"/>
 
         <!--Delete, Edit-->
-        <Button  Click="Dlt_Click" Grid.Column="4" Grid.Row="0" Foreground="LightCoral" Background="Azure" Margin="0,10,0,0" BorderBrush="Azure" Content="Delete" FontWeight="Bold" Height="20" Width="70"/>
-        <Button  Click="EditClick" Grid.Column="4" Grid.Row="0" VerticalAlignment="Bottom"  Foreground="LightCoral" Background="Azure" BorderBrush="Azure" FontWeight="Bold" Content="Edit" Height="20" Margin="0,10,0,0" Width="70"/>
+        <Button  Click="Dlt_Click" Grid.Column="4" Grid.Row="7" Foreground="Crimson" Background="Azure" BorderBrush="Azure" Content="Delete" FontWeight="Bold" Height="20" Width="70"/>
+        <Button  Click="EditClick" Grid.Column="2" Grid.Row="7" VerticalAlignment="Center"  Foreground="Crimson" Background="Azure" BorderBrush="Azure" FontWeight="Bold" Content="Edit" Height="20" Width="70"/>
 
         <!--Increase, Decrease-->
-        <Button  Click="QtyIncrease_Click" Grid.Column="3" Grid.Row="0" Content="+" VerticalAlignment="Center" Margin="0,10,0,0"   Height="20" Width="70" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" />
-        <Button  Click="QtyDecrease_Click" Grid.Column="3" Grid.Row="0" Content="-" VerticalAlignment="Bottom"  Height="25" Width="70" Foreground="LightCoral" Background="Azure" Margin="0,10,0,0" BorderBrush="Azure" />
+        <Button  Click="QtyIncrease_Click" Grid.Column="0" Grid.Row="7" Content="+" VerticalAlignment="Center"  Height="20" Width="70" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" />
+        <Button  Click="QtyDecrease_Click" Grid.Column="5" Grid.Row="7" Content="-" VerticalAlignment="Center"  Height="25" Width="70" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" />
         
-        <!--Item display-->
-        <ListBox x:Name="lbItems" BorderBrush="Transparent" Background="Transparent" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="6"  Margin="0,25,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" >
+        <!--Item display  darkgrey darkorchid seaGREEN darkstlateblue slategray, dimgray gainsboro ghostwhite-->
+        <ListBox x:Name="lbItems" BorderBrush="Black" Background="DarkGray" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4"   Margin="0,25,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
 
                     <WrapPanel Margin="30,2,0,0">
-                        <TextBlock Grid.Column="2" Grid.Row="1"  Text="Item Name: " FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+                        <TextBlock Grid.Column="2" Grid.Row="1"  Text="Item Name: " FontSize="14" Foreground="Black" FontWeight="Bold"  />
                         <TextBlock Text="{ Binding  ItemName }" FontSize="14" Foreground="Aqua" />
                         
                         <TextBlock Margin="20,0,0,0"/>
-                        <TextBlock Text="| Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+                        <TextBlock Text="| Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="Black" FontWeight="Bold"  />
                         <TextBlock Text="{Binding  ItemQty}" FontSize="14" Foreground="Turquoise"/>
                         <TextBlock Margin="20,0,0,0"/>
                         
-                        <TextBlock Text=" | Supplier: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
+                        <TextBlock Text=" | Supplier: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="Black" FontWeight="Bold"  />
                         <TextBlock Text= "{Binding  SupplierString}" FontSize="14"  Foreground="SpringGreen"   />
                         <TextBlock Margin="20,0,0,0"/>
                         

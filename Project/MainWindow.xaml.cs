@@ -33,6 +33,7 @@ namespace Project
             InitializeComponent();
 
             // Binding
+            /*
             lbItems.ItemsSource= _inventory.Items; 
 
             cmbSuppliers.ItemsSource = _supplier.GetSuppliers();            // Supplier
@@ -48,6 +49,7 @@ namespace Project
                 LoadCategories();
                 cmbCategories.ItemsSource = _categories;
             }
+            */
         }
         private void LoadSuppliers()            // In case class supplier class fails, read from file at . level to get suplpiers
         {
@@ -68,6 +70,8 @@ namespace Project
                 _inventory.AddItem(GetItem());
                 lbItems.Items.Refresh(); 
             }
+            //  When user clicks add, the window AddItem will be called like the itemedit, and they will be able to enter the item info
+            //  and the validation will be on its .cs as well, and it should return a user object that will be received and added here
         }
 
         private bool CheckItemFields()                                              // Combo boxes can be null
@@ -75,6 +79,7 @@ namespace Project
             bool numEntered = false;
             StringBuilder missingFields = new StringBuilder();
 
+            /*
             if (string.IsNullOrEmpty(txtName.Text))
                 missingFields.AppendLine("Name is a required field");
 
@@ -101,6 +106,7 @@ namespace Project
                 return true;
 
             MessageBox.Show(missingFields.ToString(), "Required  Input", MessageBoxButton.OK, MessageBoxImage.Error);
+            */
             return false;
         }
         private bool ValidateItemName(string itemName)  // "Eg2gs" is not valid
@@ -120,11 +126,14 @@ namespace Project
         }
         private Item GetItem()
         {
+            /*
             return new Item(txtName.Text, int.Parse(qtyNumber.Text))
             {
                 SupplierString = cmbSuppliers.SelectedItem as string,            // To string crashes when value is null
                 CategoryString= cmbCategories.SelectedItem as string            
             };
+            */
+            return null;
         }
         private bool CheckNumber(string numString)
         {
