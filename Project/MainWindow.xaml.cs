@@ -33,115 +33,25 @@ namespace Project
             InitializeComponent();
 
             // Binding
-            /*
+            
             lbItems.ItemsSource= _inventory.Items; 
-
-            cmbSuppliers.ItemsSource = _supplier.GetSuppliers();            // Supplier
-            cmbCategories.ItemsSource = Category.CategoryInArr();           // Catergoeis
-
-            if (cmbSuppliers.ItemsSource == null)                           // If null = binding fail
-            {
-                LoadSuppliers();
-                cmbSuppliers.ItemsSource = _suppliers; 
-            }
-            if (cmbCategories.ItemsSource == null)
-            {
-                LoadCategories();
-                cmbCategories.ItemsSource = _categories;
-            }
-            */
+            
         }
-        private void LoadSuppliers()            // In case class supplier class fails, read from file at . level to get suplpiers
-        {
-            string[] temp = Data.GetSuppliers().Split(',');
-            if (temp != null)
-                _suppliers = temp;
-        }
-        private void LoadCategories()            // In case class supplier class fails, read from file at . level to get suplpiers
-        {
-            string[] temp = Data.GetCategories().Split(',');
-            if (temp != null)
-                _categories = temp;
-        }
+        
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckItemFields())
-            {
-                _inventory.AddItem(GetItem());
+                AddItem addItem = new AddItem();    // set combo boxes 
+                addItem.ShowDialog();
+                if(addItem.GetItem()!=null)
+                _inventory.AddItem(addItem.GetItem());
                 lbItems.Items.Refresh(); 
-            }
+            
             //  When user clicks add, the window AddItem will be called like the itemedit, and they will be able to enter the item info
             //  and the validation will be on its .cs as well, and it should return a user object that will be received and added here
         }
 
-        private bool CheckItemFields()                                              // Combo boxes can be null
-        {
-            bool numEntered = false;
-            StringBuilder missingFields = new StringBuilder();
-
-            /*
-            if (string.IsNullOrEmpty(txtName.Text))
-                missingFields.AppendLine("Name is a required field");
-
-            if (!ValidateItemName(txtName.Text))                                    // if name valid returns true, t & f = f
-                missingFields.AppendLine("Name can only contain letters");
-
-            if (string.IsNullOrEmpty(qtyNumber.Text))
-                 missingFields.AppendLine("Quantity is a required field");
-            else { numEntered = true; }
-
-            if (!ValidateQty(qtyNumber.Text))                                       // Check that quantity are numbers
-                { missingFields.AppendLine("Quantity: only numbers are accepted"); numEntered = false; }
-
-            if(numEntered)                                                          // If a number is entered
-            {
-                if (CheckNumber(qtyNumber.Text))
-                    missingFields.AppendLine("Quantity can't be negative");
-                if (int.Parse(qtyNumber.Text) == 0)
-                    missingFields.AppendLine("Minimum quantity is 1");
-            }
-              
-
-            if (string.IsNullOrEmpty(missingFields.ToString()))                     // if it is not empty, there are errors 
-                return true;
-
-            MessageBox.Show(missingFields.ToString(), "Required  Input", MessageBoxButton.OK, MessageBoxImage.Error);
-            */
-            return false;
-        }
-        private bool ValidateItemName(string itemName)  // "Eg2gs" is not valid
-        {
-            foreach (char letter in itemName)
-            {
-                if(!char.IsLetter(letter))
-                    return false;
-            }
-            return true;
-        }
-        private bool ValidateQty(string qtyAsString)    //12Hi3 not valid
-        {
-            if(int.TryParse(qtyAsString, out _))
-                return true;
-            return false;
-        }
-        private Item GetItem()
-        {
-            /*
-            return new Item(txtName.Text, int.Parse(qtyNumber.Text))
-            {
-                SupplierString = cmbSuppliers.SelectedItem as string,            // To string crashes when value is null
-                CategoryString= cmbCategories.SelectedItem as string            
-            };
-            */
-            return null;
-        }
-        private bool CheckNumber(string numString)
-        {
-            if (int.Parse(numString)<0)
-                return true;
-
-            return false;
-        }
+       
+       
         private void EditClick(object sender, RoutedEventArgs e)            //Not working properly the item edit, I asked aref
         {
             Item temp = lbItems.SelectedItem as Item;                       //List box is visitor so no need to check

@@ -10,13 +10,15 @@ namespace Project.Models
     {
         private enum _categories
         {
-            Pantry, Diary, Drinks, Frozen, Food,
+           Pantry, Diary, Drinks, Frozen, Food,
             Fruit_and_Vegetable, Bakery, Cleaning_Supplies, Other
         }
         public static string[] CategoryInArr()                                      // Converted to arr for binding purposes, 
-        {            
-            var valuesAsArray = Enum.GetNames(typeof(_categories));
-            return valuesAsArray;
+        {
+            
+            var valuesAsArray = Enum.GetNames(typeof(_categories)).ToList();
+            valuesAsArray.Insert(0, "");                                            // so it can be null
+            return valuesAsArray.ToArray();
         }
     }
 }

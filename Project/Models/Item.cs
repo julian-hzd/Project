@@ -23,6 +23,12 @@ namespace Project.Models
 
         private Supplier _supplier;
         private string _supplierString;                                                     // To achieve binding
+
+        public Item()
+        {
+            _itemName = String.Empty;
+            _itemQty = 0;
+        }
         public Item(string itemName, int itemQty)                                           // For an item to be added at, the minimum requirements are name and quantity
         {
             _itemName = itemName;
