@@ -16,9 +16,10 @@ using Project.Models;
 namespace Project
 {
     /// <summary>
-    /// Interaction logic for AddItem.xaml
+    /// Interaction logic for AddNewItem.xaml
     /// </summary>
-    public partial class AddItem : Window
+    
+    public partial class AddNewItem : Window
     {
         private Supplier _supplier = new Supplier();
         private string[] _suppliers;                            // In case the class fails
@@ -27,11 +28,11 @@ namespace Project
         private string[] _categories;
 
         private Item _item;
-        public AddItem()
+        public AddNewItem()
         {
             InitializeComponent();
 
-            
+
             //read fields 
             //validate
             //create and return an item instance with the info provided
@@ -41,18 +42,18 @@ namespace Project
             cmbCategories.ItemsSource = Category.CategoryInArr();           // Catergoeis
 
             if (cmbSuppliers.ItemsSource == null)                           // If null = binding failed
-                cmbSuppliers.ItemsSource = Data.LoadSuppliers(); 
-            
+                cmbSuppliers.ItemsSource = Data.LoadSuppliers();
+
             if (cmbCategories.ItemsSource == null)
                 cmbCategories.ItemsSource = Data.LoadCategories();
-            
+
         }
         private bool CheckItemFields()                                              // Combo boxes can be null
         {
             bool numEntered = false;
             StringBuilder missingFields = new StringBuilder();
 
-            
+
             if (string.IsNullOrEmpty(txtName.Text))
                 missingFields.AppendLine("Name is a required field");
 
@@ -60,31 +61,31 @@ namespace Project
                 missingFields.AppendLine("Name can only contain letters");
 
             if (string.IsNullOrEmpty(qtyNumber.Text))
-                 missingFields.AppendLine("Quantity is a required field");
+                missingFields.AppendLine("Quantity is a required field");
             else { numEntered = true; }
 
             if (!ValidateQty(qtyNumber.Text))                                       // Check that quantity are numbers
-                { missingFields.AppendLine("Quantity: only numbers are accepted"); numEntered = false; }
+            { missingFields.AppendLine("Quantity: only numbers are accepted"); numEntered = false; }
 
-            if(numEntered)                                                          // If a number is entered
+            if (numEntered)                                                          // If a number is entered
             {
                 if (CheckNumber(qtyNumber.Text))
                     missingFields.AppendLine("Quantity can't be negative");
                 if (int.Parse(qtyNumber.Text) == 0)
                     missingFields.AppendLine("Minimum quantity is 1");
             }
-              
+
 
             if (string.IsNullOrEmpty(missingFields.ToString()))                     // if it is not empty, there are errors 
                 return true;
 
             MessageBox.Show(missingFields.ToString(), "Required  Input", MessageBoxButton.OK, MessageBoxImage.Error);
-            
+
             return false;
         }
         Item Item
         {
-            get { return _item; } 
+            get { return _item; }
             set { _item = value; }
         }
         public Item GetItem()

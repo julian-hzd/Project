@@ -23,34 +23,23 @@ namespace Project
     {
         
         private Supplier _supplier=new Supplier();
-        private string[] _suppliers;                            // In case the class fails
-
         private Inventory _inventory = new Inventory();
-
-        private string[] _categories;                            // In case class fails
         public MainWindow()
         {
             InitializeComponent();
 
-            // Binding
-            
-            lbItems.ItemsSource= _inventory.Items; 
-            
+            // Binding           
+            lbItems.ItemsSource= _inventory.Items;             
         }
         
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-                AddItem addItem = new AddItem();    // set combo boxes 
+                AddNewItem addItem = new AddNewItem();    // set combo boxes 
                 addItem.ShowDialog();
                 if(addItem.GetItem()!=null)
                 _inventory.AddItem(addItem.GetItem());
                 lbItems.Items.Refresh(); 
-            
-            //  When user clicks add, the window AddItem will be called like the itemedit, and they will be able to enter the item info
-            //  and the validation will be on its .cs as well, and it should return a user object that will be received and added here
-        }
-
-       
+        }       
        
         private void EditClick(object sender, RoutedEventArgs e)            //Not working properly the item edit, I asked aref
         {
