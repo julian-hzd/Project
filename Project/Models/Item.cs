@@ -107,7 +107,21 @@ namespace Project.Models
             get { return string.Format($"{ItemName},{AvailableItemQty},{MinItemQty},{Location},{Supplier},{Category}"); }
             set
             {
+                string[] data = value.Split(',');
 
+                try
+                {
+                    ItemName = data[0];
+                    AvailableItemQty = int.Parse(data[1]);
+                    MinItemQty = int.Parse(data[2]);
+                    Location = data[3];
+                    Supplier = data[4];
+                    Category = data[5];
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Data is not valid " + e.Message);
+                }
             }
         }
     }
