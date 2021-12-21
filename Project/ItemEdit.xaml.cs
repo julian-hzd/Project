@@ -44,14 +44,8 @@ namespace Project
             if (!valid)
                 MessageBox.Show("Invalid changes won't be saved");
             else
-            {
-                if(_item.AvailableItemQty>=_item.MinItemQty)
-                    Inventory._shoppingList.Remove(_item);
                 Close();
-
-            }
         }
-
         private bool CheckItemFields()
         {
             try
