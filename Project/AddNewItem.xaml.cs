@@ -88,7 +88,7 @@ namespace Project
                 Close();
             }
             else
-                MessageBox.Show("Invalid items won't be added");
+                return;
         }
     }
 }

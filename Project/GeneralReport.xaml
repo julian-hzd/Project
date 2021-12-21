@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="GeneralReport" Height="450" Width="600" Background="LightSlateGray">
 
-    <DataGrid Height="auto" HorizontalAlignment="Left" Margin="12,21,12,0" 
+    <DataGrid Height="auto"  HorizontalAlignment="Left" Margin="24,20,12,0" 
               Name="McDataGrid" VerticalAlignment="Top" Width="550"
               GridLinesVisibility="Vertical" HeadersVisibility="All" 
               Background="LightGray" RowBackground="Thistle" AlternatingRowBackground="Beige" 

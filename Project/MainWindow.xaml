@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Project"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Inventory Tracker" Height="540" Width="940">
     <Grid>
 
@@ -18,7 +19,6 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height=".1*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height=".2*"/>
                 <RowDefinition Height="20"/>
@@ -29,42 +29,42 @@
                 <ColumnDefinition Width="196*"/>
                 <ColumnDefinition Width="196*"/>
                 <ColumnDefinition Width="196*"/>
-                <ColumnDefinition Width="196*"/>
                 <ColumnDefinition Width="32"/>
             </Grid.ColumnDefinitions>
 
-            <!--Menu Tab-->
+            <!--File Tab-->
             <Menu Grid.Row="0" Width="32" HorizontalAlignment="Left" Background="AntiqueWhite">
-                <MenuItem Header="File" FontWeight="Bold" Foreground="Purple" BorderBrush="Purple">
-                    <MenuItem Header="Load" x:Name="load" Click="Load_Click" Foreground="Purple" BorderBrush="Purple" Background="AntiqueWhite"></MenuItem>
-                    <MenuItem Header="Save" x:Name="save" Click="Save_Click" Foreground="Purple" BorderBrush="Purple" Background="AntiqueWhite"></MenuItem>
+                <MenuItem Header="File" FontWeight="Bold" Foreground="Black" BorderBrush="DarkBlue">
+                    <MenuItem Header="Load" x:Name="load" Click="Load_Click" Foreground="Black" BorderBrush="DarkBlue" Background="AntiqueWhite"></MenuItem>
+                    <MenuItem Header="Save" x:Name="save" Click="Save_Click" Foreground="Black" BorderBrush="DarkBlue" Background="AntiqueWhite"></MenuItem>
                 </MenuItem>
             </Menu>
-            
+
+            <!--Print Tab-->
             <Menu Grid.Column="1" Width="40" HorizontalAlignment="Left" Background="AntiqueWhite">
-                <MenuItem Header="Print" FontWeight="Bold" Foreground="Purple" BorderBrush="Purple">
-                    <MenuItem Header="General Report" Click="generalReport_Click" Foreground="Purple" BorderBrush="Purple" Background="AntiqueWhite"></MenuItem>
-                    <MenuItem Header="Shopping List" Click="shoppingList_Click" Foreground="Purple" BorderBrush="Purple" Background="AntiqueWhite"></MenuItem>
+                <MenuItem Header="Print" FontWeight="Bold" Foreground="Black" BorderBrush="DarkBlue">
+                    <MenuItem Header="General Report" Click="generalReport_Click" Foreground="Black" BorderBrush="DarkBlue" Background="AntiqueWhite"></MenuItem>
+                    <MenuItem Header="Shopping List" Click="shoppingList_Click" Foreground="Black" BorderBrush="DarkBlue" Background="AntiqueWhite"></MenuItem>
                 </MenuItem>
             </Menu>
 
             <!--Title-->
-            <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="87,20,0,330" HorizontalAlignment="Left" Grid.RowSpan="2">
+            <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="13,20,0,330" HorizontalAlignment="Left" Grid.RowSpan="2">
                 <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold" />
             </StackPanel>
 
             <!--Add, Edit, Delete, Clear-->
-            <Button Click="Add_Click" Content="Add"  BorderBrush="Purple" Height="20" Width="70" Foreground="Purple" Background="LightSlateGray" Grid.Row="3" Grid.Column="2" FontWeight="Bold" Margin="0,20,100,20"/>
-            <Button  Click="EditClick" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"  Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" FontWeight="Bold" Content="Edit" Height="20" Width="70" Margin="100,20,0,20"/>
-            <Button  Click="Dlt_Click" Grid.Column="3"  Grid.Row="3" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Content="Delete" FontWeight="Bold" Height="20" Width="70" Margin="100,20,0,20"/>
-            <Button Click="Clear_Click" Content="Clear"  BorderBrush="Purple" Height="20" Width="70" Foreground="Purple" Background="LightSlateGray" Grid.Row="3" Grid.Column="3" FontWeight="Bold" Margin="0,20,100,20"/>
+            <Button Click="Add_Click" Content="Add" Grid.Row="2" Grid.Column="1" BorderBrush="DarkBlue" Height="20" Width="70" Foreground="DarkBlue" Background="LightSlateGray" FontWeight="Bold" Margin="140,20,0,20"/>
+            <Button  Click="EditClick" Content="Edit" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"  Foreground="DarkBlue" Background="LightSlateGray"  BorderBrush="DarkBlue" FontWeight="Bold" Height="20" Width="70" Margin="0,20,140,20"/>
+            <Button Click="Clear_Click" Content="Clear" Grid.Row="2" Grid.Column="2" BorderBrush="DarkBlue" Height="20" Width="70" Foreground="DarkBlue" Background="LightSlateGray" FontWeight="Bold" Margin="140,20,0,20"/>
+            <Button  Click="Dlt_Click" Content="Delete" Grid.Row="2" Grid.Column="3" Foreground="DarkBlue" Background="LightSlateGray" BorderBrush="DarkBlue" FontWeight="Bold" Height="20" Width="70" Margin="0,20,140,20" />
 
             <!--Increase, Decrease Qty-->
-            <Button  Click="QtyIncrease_Click" Grid.Column="1" Grid.Row="3" Content="Increase Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="50,20,0,20" />
-            <Button  Click="QtyDecrease_Click" Grid.Column="3" Grid.Row="3" Content="Decrease Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,20,50,20" />
+            <Button  Click="QtyIncrease_Click" Content="Increase Qty" Grid.Row="2" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="DarkBlue" Background="LightSlateGray"  BorderBrush="DarkBlue" HorizontalAlignment="Left" Margin="0,20,0,20" />
+            <Button  Click="QtyDecrease_Click" Content="Decrease Qty" Grid.Row="2" Grid.Column="3" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="DarkBlue" Background="LightSlateGray"  BorderBrush="DarkBlue" HorizontalAlignment="Right" Margin="0,20,0,20" />
 
             <!--Item display-->
-            <ListBox x:Name="lbItems" BorderBrush="Purple" Background="LightSlateGray" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Margin="0,100,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2" >
+            <ListBox x:Name="lbItems" BorderBrush="DarkBlue" Background="LightSlateGray" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Margin="0,100,0,0" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel Margin="100,3,0,0">
@@ -89,7 +89,7 @@
 
             <!--Status Bar-->
             <StackPanel Grid.Row="5" Grid.ColumnSpan="6">
-                <TextBlock Text="Status Bar: " Height="20" Background="AntiqueWhite" Margin="0,0,0,0" FontWeight="Bold"></TextBlock>
+                <TextBlock Text="Status Bar: " x:Name="txtStatusBar" Height="20" Background="AntiqueWhite" Margin="0,0,0,0" FontWeight="Bold"></TextBlock>
             </StackPanel>
 
         </Grid>
