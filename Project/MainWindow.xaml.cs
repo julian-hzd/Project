@@ -126,14 +126,17 @@ namespace Project
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            //check save location
             if (inventory.Items.Count == 0)
             {
                 MessageBox.Show("There is nothing to save", "Notice", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
-            else if (string.IsNullOrEmpty(saveLocation))
+            Save();
+        }
+        private void Save()
+        {
+            if (string.IsNullOrEmpty(saveLocation))
             {
                 SaveFileDialog save = new SaveFileDialog();
                 save.Filter = "CSV Files|*.csv";
@@ -174,7 +177,59 @@ namespace Project
         }
         private void Load_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (CheckIfSaved())
+            {
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "CSV Files|*.csv";
+
+                if (open.ShowDialog() == true)
+                {
+                    saveLocation = open.FileName;
+                    saved = true;
+                    inventory.Items.Clear();
+
+                    ReadItems();
+                    lbItems.Items.Refresh();
+                    txtStatusBar.Text = "File loaded from " + saveLocation;
+                }
+            }
+        }
+        private bool CheckIfSaved()
+        {
+            if (string.IsNullOrEmpty(saveLocation))
+                return true;
+
+            if (saved)
+                return true;
+
+            MessageBoxResult result = MessageBox.Show("Do you want to save changes?", "Unsaved Data", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.No)
+                return true;
+
+            if (result == MessageBoxResult.Cancel)
+                return false;
+
+            if (result == MessageBoxResult.Yes)
+                Save();
+
+            return saved; //to check if user cancels or exits during saving process
+        }
+        private void ReadItems()
+        {
+            try
+            {
+                string[] values = File.ReadAllLines(saveLocation);
+                foreach (string item in values)
+                {
+                    Item temp = new Item() { CSVItem = item };
+                    inventory.Items.Add(temp);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         private void generalReport_Click(object sender, RoutedEventArgs e)
         {
@@ -185,6 +240,11 @@ namespace Project
         {
             ShoppingList shoppingList = new ShoppingList(inventory.Items);
             shoppingList.ShowDialog();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = !CheckIfSaved();
         }
     }
 }
