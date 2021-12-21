@@ -113,7 +113,7 @@ namespace Project
             }
 
         }
-        private void Clear_Click(object sender, RoutedEventArgs e)
+        private void Clear_Click(object sender, RoutedEventArgs e) //sad
         {
             if (lbItems.HasItems == true)
             {
