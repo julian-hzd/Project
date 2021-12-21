@@ -87,6 +87,8 @@ namespace Project
             else
             {
                 temp.AvailableItemQty++;
+                if(temp.AvailableItemQty>=temp.MinItemQty)
+                    Inventory._shoppingList.Remove(temp);
                 lbItems.Items.Refresh();
             }
 
@@ -105,6 +107,8 @@ namespace Project
             else
             {
                 temp.AvailableItemQty--;                                     //If button is clicked without selecting item, crashes fix, same above
+                if(temp.AvailableItemQty < temp.MinItemQty)
+                    Inventory._shoppingList.Add(temp);
                 lbItems.Items.Refresh();
             }
 
