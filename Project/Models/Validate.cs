@@ -1,7 +1,13 @@
 ﻿namespace Project.Models
 {
+    /*
+        Names: Jeremy Oroc, Julian Hernandez
+        Student IDs: 2034933 (Jeremy), 2093730 (Julian)
+        Programming III - Fall 2021
+    */
     public static class Validate
     {
+        // All required validation to avoid crashing the application, and also provides appropiate error messages when needed.
         public static string Message { get; set; }
         #region PUBLIC METHODS
         public static bool ValidateItemName(string itemName)

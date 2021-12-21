@@ -3,6 +3,11 @@ using System.IO;
 
 namespace Project.Models
 {
+    /*
+        Names: Jeremy Oroc, Julian Hernandez
+        Student IDs: 2034933 (Jeremy), 2093730 (Julian)
+        Programming III - Fall 2021
+    */
     internal static class Data // Static, Utility class, no instances need to be created
     {
         #region FETCHING INFO FROM FILE

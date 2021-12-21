@@ -2,6 +2,11 @@
 
 namespace Project.Models
 {
+    /*
+        Names: Jeremy Oroc, Julian Hernandez
+        Student IDs: 2034933 (Jeremy), 2093730 (Julian)
+        Programming III - Fall 2021
+    */
     public class Item
     {
         #region DATA FIELDS
@@ -15,7 +20,7 @@ namespace Project.Models
         private const int MIN_ITEM_QTY = 1;
         #endregion
         #region CONSTRUCTORS
-        public Item()
+        public Item()                                                               // Default constructor
         {
             _itemName = string.Empty;
             _availableItemQty = 0;
@@ -23,7 +28,7 @@ namespace Project.Models
             _supplier = string.Empty;
             _category = string.Empty;
         }
-        public Item(string itemName, int availableItemQty)
+        public Item(string itemName, int availableItemQty)                          //  Minimum arguments to create an instance of an item
         {
             ItemName = itemName;
             AvailableItemQty = availableItemQty;
@@ -31,7 +36,7 @@ namespace Project.Models
             Supplier = string.Empty;
             Category = string.Empty;
         }
-        public Item(string itemName, int availableItemQty, int minItemQty, string location, string supplier, string category)
+        public Item(string itemName, int availableItemQty, int minItemQty, string location, string supplier, string category) // Sets all backing fields
         {
             ItemName = itemName;
             AvailableItemQty = availableItemQty;
@@ -51,14 +56,14 @@ namespace Project.Models
         {
             get 
             {
-                if (_availableItemQty < 0)
+                if (_availableItemQty < 0)        // This validation it is needed to avoid anomalies when editing an item of the inventory list
                     return 0;
 
                 return _availableItemQty; 
             }
             set
             {
-                if (value < 0)
+                if (value < 0)                     // If user tries to set a negative quantity, the available quantity will be forced to 0
                     _availableItemQty = 0;
 
                 _availableItemQty = value;
@@ -68,14 +73,14 @@ namespace Project.Models
         {
             get 
             {
-                if (_minItemQty < MIN_ITEM_QTY)
+                if (_minItemQty < MIN_ITEM_QTY)     // This validation it is needed to avoid anomalies when editing an item of the inventory list
                     return MIN_ITEM_QTY;
 
                 return _minItemQty; 
             }
             set
             {
-                if (value < MIN_ITEM_QTY)
+                if (value < MIN_ITEM_QTY)                 // If user tries to set an inavlid <1 minimum quantity, this will be forced to 1
                     _minItemQty = MIN_ITEM_QTY;
 
                 _minItemQty = value;

@@ -7,9 +7,11 @@ using System.IO;
 
 namespace Project
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /*
+        Names: Jeremy Oroc, Julian Hernandez
+        Student IDs: 2034933 (Jeremy), 2093730 (Julian)
+        Programming III - Fall 2021
+    */
     public partial class MainWindow : Window
     {
         #region DATA FIELDS
