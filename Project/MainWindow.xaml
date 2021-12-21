@@ -9,18 +9,21 @@
         Title="Inventory Tracker" Height="505" Width="940">
     <Grid>
         <Grid>
-            
+
             <Grid.RowDefinitions>
+                
                 <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="15"></RowDefinition>
+
             </Grid.RowDefinitions>
-            
+
             <Grid x:Name="grContent">
 
+                <!--Background Img-->
                 <Grid.Background>
                     <ImageBrush Stretch="Fill" ImageSource="/Images/snowman.jpg" AlignmentY="Top" AlignmentX="Center"/>
                 </Grid.Background>
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height=".1*"/>
@@ -37,15 +40,16 @@
                     <ColumnDefinition Width="78*"/>
                 </Grid.ColumnDefinitions>
 
-                <Menu Grid.Row="0"  Background="LightSlateGray">
-                    <MenuItem Header="File" Foreground="Purple" BorderBrush="Purple">
-                        <MenuItem Header="Load" x:Name="load" Click="Load_Click" Foreground="Purple" BorderBrush="Purple" Background="LightSlateGray"></MenuItem>
-                        <MenuItem Header="Save" x:Name="save" Click="Save_Click" Foreground="Purple" BorderBrush="Purple" Background="LightSlateGray"></MenuItem>
+                <!--Menu Tab-->
+                <Menu Grid.Row="0" Width="35" HorizontalAlignment="Left" Background="AntiqueWhite">
+                    <MenuItem Header="File" FontWeight="Bold" Foreground="Purple" >
+                        <MenuItem Header="Load" x:Name="load" Click="Load_Click" Foreground="Purple" Background="AntiqueWhite"></MenuItem>
+                        <MenuItem Header="Save" x:Name="save" Click="Save_Click" Foreground="Purple" Background="AntiqueWhite"></MenuItem>
                     </MenuItem>
                 </Menu>
 
                 <!--Title-->
-                <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="65,0,0,350" HorizontalAlignment="Left" Grid.RowSpan="2">
+                <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="65,20,0,330" HorizontalAlignment="Left" Grid.RowSpan="2">
                     <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold" />
                 </StackPanel>
 
@@ -55,36 +59,38 @@
                 <Button  Click="Dlt_Click" Grid.Column="3"  Grid.Row="3" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Content="Delete" FontWeight="Bold" Height="20" Width="70" Margin="100,20,0,20"/>
                 <Button Click="Clear_Click" Content="Clear"  BorderBrush="Purple" Height="20" Width="70" Foreground="Purple" Background="LightSlateGray" Grid.Row="3" Grid.Column="3" FontWeight="Bold" Margin="0,20,100,20"/>
 
-                <!--Increase, Decrease-->
+                <!--Increase, Decrease Qty-->
                 <Button  Click="QtyIncrease_Click" Grid.Column="1" Grid.Row="3" Content="Increase Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="50,20,0,20" />
                 <Button  Click="QtyDecrease_Click" Grid.Column="3" Grid.Row="3" Content="Decrease Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,20,50,20" />
 
-                <!--Item display  darkgrey darkstlateblue slategray, dimgray gainsboro ghostwhite-->
+                <!--Item display-->
                 <ListBox x:Name="lbItems" BorderBrush="Purple" Background="LightSlateGray" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Margin="0,100,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <WrapPanel Margin="30,2,0,0">
-                                <TextBlock Text="| " FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
-                                <TextBlock Grid.Column="2" Grid.Row="1"  Text="Item Name: " FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
-                                <TextBlock Text="{ Binding  ItemName }" FontSize="14" Foreground="Beige" />
+                            <WrapPanel Margin="45,3,0,0">
+                                <TextBlock Text="| Item Name: " FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
+                                <TextBlock Text="{ Binding ItemName }" FontSize="14" Foreground="Beige" />
                                 <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
                                 <TextBlock Margin="20,0,0,0"/>
 
                                 <TextBlock Text="| Available Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
-                                <TextBlock Text="{Binding  AvailableItemQty}" FontSize="14" Foreground="Beige"/>
+                                <TextBlock Text="{Binding AvailableItemQty}" FontSize="14" Foreground="Beige"/>
                                 <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
                                 <TextBlock Margin="20,0,0,0"/>
 
                                 <TextBlock Text="| Minimum Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
-                                <TextBlock Text="{Binding  MinItemQty}" FontSize="14" Foreground="Beige"/>
+                                <TextBlock Text="{Binding MinItemQty}" FontSize="14" Foreground="Beige"/>
                                 <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
                                 <TextBlock Margin="20,0,0,0"/>
                             </WrapPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                
+
             </Grid>
+            
+            <!--Status Bar-->
+            <TextBlock Text="Status Bar: " Grid.Row="1" Background="AntiqueWhite" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
         </Grid>
 
     </Grid>
