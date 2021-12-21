@@ -140,5 +140,15 @@ namespace Project
         {
 
         }
+
+        private void load_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void save_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

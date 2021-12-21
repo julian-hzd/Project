@@ -33,7 +33,8 @@
 
         <Menu Grid.Row="0"  Background="LightSlateGray">
             <MenuItem Header="File" Foreground="Purple" BorderBrush="Purple">
-                
+                <MenuItem Header="Load" x:Name="load" Click="load_Click_1" Foreground="Purple" BorderBrush="Purple" Background="LightSlateGray"></MenuItem>
+                <MenuItem Header="Save" x:Name="save" Click="save_Click_1" Foreground="Purple" BorderBrush="Purple" Background="LightSlateGray"></MenuItem>
             </MenuItem>
         </Menu>
 
@@ -60,21 +61,25 @@
         <Button  Click="QtyDecrease_Click" Grid.Column="5" Grid.Row="3" Content="Decrease Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="4,0,12,0" />
 
         <!--Item display  darkgrey darkstlateblue slategray, dimgray gainsboro ghostwhite-->
-        <ListBox x:Name="lbItems" BorderBrush="Black" Background="LightSlateGray" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="6"   Margin="17,25,78,60" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2" >
+        <ListBox x:Name="lbItems" BorderBrush="Purple" Background="LightSlateGray" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="6"   Margin="17,25,78,60" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
 
                     <WrapPanel Margin="30,2,0,0">
+                        <TextBlock Text="| " FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
                         <TextBlock Grid.Column="2" Grid.Row="1"  Text="Item Name: " FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
                         <TextBlock Text="{ Binding  ItemName }" FontSize="14" Foreground="Beige" />
+                        <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
                         <TextBlock Margin="20,0,0,0"/>
 
                         <TextBlock Text="| Available Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
                         <TextBlock Text="{Binding  AvailableItemQty}" FontSize="14" Foreground="Beige"/>
+                        <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
                         <TextBlock Margin="20,0,0,0"/>
 
                         <TextBlock Text="| Minimum Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
                         <TextBlock Text="{Binding  MinItemQty}" FontSize="14" Foreground="Beige"/>
+                        <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
                         <TextBlock Margin="20,0,0,0"/>
                     </WrapPanel>
                 </DataTemplate>
