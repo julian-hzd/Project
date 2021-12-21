@@ -32,12 +32,12 @@
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="78*" />
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="196*"/>
                     <ColumnDefinition Width="196*"/>
                     <ColumnDefinition Width="196*"/>
                     <ColumnDefinition Width="196*"/>
-                    <ColumnDefinition Width="78*"/>
+                    <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
 
                 <!--Menu Tab-->

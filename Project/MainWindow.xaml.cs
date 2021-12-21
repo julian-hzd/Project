@@ -123,6 +123,8 @@ namespace Project
 
         }
 
+       
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             //check save location
@@ -147,10 +149,14 @@ namespace Project
         {
 
         }
-
+        private void shoppingList_Click(object sender, RoutedEventArgs e)
+        {
+            ShoppingList shoppingList = new ShoppingList(Inventory._shoppingList);
+            shoppingList.ShowDialog();
+        }
         private void lbItems_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
     }
 }
