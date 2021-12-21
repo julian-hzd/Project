@@ -195,10 +195,11 @@ namespace Project
         }
         private bool CheckIfSaved()
         {
-            if (string.IsNullOrEmpty(saveLocation))
-                return true;
 
             if (saved)
+                return true;
+
+            if (string.IsNullOrEmpty(saveLocation) && inventory.Items.Count == 0)
                 return true;
 
             MessageBoxResult result = MessageBox.Show("Do you want to save changes?", "Unsaved Data", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
