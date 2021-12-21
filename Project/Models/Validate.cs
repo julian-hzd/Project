@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Models
 {
-    public static class Validation
+    public static class Validate
     {
         public static string Message { get; set; }
         public static bool ValidateItemName(string itemName)
@@ -45,12 +45,7 @@ namespace Project.Models
         }
         public static bool ValidateMinimumQuantity(string quantity)
         {
-            if (string.IsNullOrEmpty(quantity))
-            {
-                Message = "Minimum Quantity is a required field";
-                return true;
-            }
-            else if (ValidateNumber(quantity))
+            if (ValidateNumber(quantity))
             {
                 Message = "Minimum Quantity must be a number";
                 return true;
@@ -80,9 +75,9 @@ namespace Project.Models
         private static bool ValidateNumber(string number)
         {
             if (int.TryParse(number, out int result)) //if number is integer
-                return true;
+                return false;
 
-            return false;
+            return true;
         }
         private static bool CheckNegativeNumber(string number)
         {
@@ -91,13 +86,12 @@ namespace Project.Models
 
             return false;
         }
-
         private static bool ValidateMinQty(string number)
         {
             if (int.Parse(number) > 0)
-                return true;
+                return false;
 
-            return false;
+            return true;
         }
     }
 }

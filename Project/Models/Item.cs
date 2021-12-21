@@ -12,23 +12,31 @@ namespace Project.Models
         #region DATA FIELDS
         private string _itemName;
         private int _availableItemQty;
-        private int _minItemQty = 1; //has default value
-        private int _location; //Isle number
+        private int _minItemQty = MIN_ITEM_QTY;
+        private string _location;
         private string _supplier;
         private string _category;
 
-        private const int MAX_ISLE = 100;
+        private const int MIN_ITEM_QTY = 1;
         #endregion
         #region CONSTRUCTORS
         public Item()
         {
             _itemName = string.Empty;
             _availableItemQty = 0;
-            _location = 0;
+            _location = string.Empty;
             _supplier = string.Empty;
             _category = string.Empty;
         }
-        public Item(string itemName, int availableItemQty, int minItemQty, int location, string supplier, string category)
+        public Item(string itemName, int availableItemQty)
+        {
+            ItemName = itemName;
+            AvailableItemQty = availableItemQty;
+            Location = string.Empty;
+            Supplier = string.Empty;
+            Category = string.Empty;
+        }
+        public Item(string itemName, int availableItemQty, int minItemQty, string location, string supplier, string category)
         {
             ItemName = itemName;
             AvailableItemQty = availableItemQty;
@@ -46,38 +54,42 @@ namespace Project.Models
         }
         public int AvailableItemQty
         {
-            get { return _availableItemQty; }
+            get 
+            {
+                if (_availableItemQty < 0)
+                    return 0;
+
+                return _availableItemQty; 
+            }
             set
             {
                 if (value < 0)
-                    throw new ArgumentException("Available item quantity cannot be negative");
+                    _availableItemQty = 0;
+
+                _availableItemQty = value;
             }
         }
         public int MinItemQty
         {
-            get { return _minItemQty; }
+            get 
+            {
+                if (_minItemQty < MIN_ITEM_QTY)
+                    return MIN_ITEM_QTY;
+
+                return _minItemQty; 
+            }
             set
             {
-                if (value < 1)
-                    throw new ArgumentException("Minimum quantity cannot be less than 1");
+                if (value < MIN_ITEM_QTY)
+                    _minItemQty = MIN_ITEM_QTY;
 
                 _minItemQty = value;
             }
         }
-        public int Location
+        public string Location
         {
             get { return _location; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentException("Isle number cannot be negative");
-
-                if (value > MAX_ISLE)
-                    throw new ArgumentException("Isle number cannot exceed " + MAX_ISLE);
-
-                else
-                    _location = value;
-            }
+            set { _location = value; }
         }
         public string Supplier
         {

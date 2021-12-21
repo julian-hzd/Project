@@ -8,31 +8,33 @@
         Title="ItemEdit" Height="400" Width="450" >
 
     <Grid x:Name="grItemEdit">
+        
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="/ok.jpg" AlignmentY="Top" AlignmentX="Center"/>
+            <ImageBrush Stretch="Fill" ImageSource="./Images/ok.jpg" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
+        
         <StackPanel x:Name="dgItems" Width="250" Height="300" >
 
             <TextBlock Foreground="Black" FontWeight="Bold" Text="Item Name" HorizontalAlignment="Center"></TextBlock>
             <TextBox x:Name="txtName" Text="{Binding ItemName}" Margin="0,6,0,0" Width="100"></TextBox>
 
             <TextBlock Foreground="Black" FontWeight="Bold" Text="Available Quantity" HorizontalAlignment="Center"></TextBlock>
-            <TextBox x:Name="availableQtyNumber" Text="{Binding ItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
+            <TextBox x:Name="availableQtyNumber" Text="{Binding AvailableItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
 
             <TextBlock Foreground="Black" FontWeight="Bold" Text="Minimum Quantity" HorizontalAlignment="Center"></TextBlock>
             <TextBox x:Name="minQtyNumber" Text="{Binding MinItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
 
             <TextBlock Foreground="Black" FontWeight="Bold" Text="Isle Number / Location" HorizontalAlignment="Center"></TextBlock>
-            <TextBox x:Name="locationNumber" Text="{Binding IsleNumber}" Margin="0,6,0,0" Width="100"></TextBox>
+            <TextBox x:Name="locationNumber" Text="{Binding Location}" Margin="0,6,0,0" Width="100"></TextBox>
 
             <TextBlock Foreground="Black" FontWeight="Bold" Text="Supplier" HorizontalAlignment="Center"></TextBlock>
-            <TextBox x:Name="cmbSuppliers" Text="{Binding SupplierString}" Margin="0,6,0,0" Width="100"></TextBox>
+            <TextBox x:Name="cmbSuppliers" Text="{Binding Supplier}" Margin="0,6,0,0" Width="100"></TextBox>
 
             <TextBlock Foreground="Black" FontWeight="Bold" Text="Category" HorizontalAlignment="Center"></TextBlock>
-            <TextBox x:Name="cmbCategories" Text="{Binding CategoryString}" Margin="0,6,0,0" Width="100"></TextBox>
+            <TextBox x:Name="cmbCategories" Text="{Binding Category}" Margin="0,6,0,0" Width="100"></TextBox>
 
             <Button Width="100" Click="clear_Click" Height="18" Margin="0,10,0,0" Content="Clear"/>
-            <Button Width="100" Click="addItem_Click" Height="18" Margin="0,10,0,0" Content="Add"/>
+            <Button Width="100" Click="done_Click" Height="18" Margin="0,10,0,0" Content="Done"/>
             
         </StackPanel>
     </Grid>

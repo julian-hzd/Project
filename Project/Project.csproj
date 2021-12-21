@@ -91,7 +91,7 @@
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\SuppliersList.cs" />
-    <Compile Include="Models\Validation.cs" />
+    <Compile Include="Models\Validate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -119,16 +119,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="snow.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="snowman.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\snowman.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ok.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ok.jpg" />

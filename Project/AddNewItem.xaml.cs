@@ -44,14 +44,14 @@ namespace Project
             {
                 StringBuilder missingFields = new StringBuilder();
 
-                if (Validation.ValidateItemName(txtName.Text))
-                    missingFields.AppendLine(Validation.Message);
+                if (Validate.ValidateItemName(txtName.Text))
+                    missingFields.AppendLine(Validate.Message);
 
-                if (Validation.ValidateAvailableQuantity(availableQtyNumber.Text))
-                    missingFields.AppendLine(Validation.Message);
+                if (Validate.ValidateAvailableQuantity(availableQtyNumber.Text))
+                    missingFields.AppendLine(Validate.Message);
 
-                if (Validation.ValidateMinimumQuantity(minQtyNumber.Text))
-                    missingFields.AppendLine(Validation.Message);
+                if (Validate.ValidateMinimumQuantity(minQtyNumber.Text))
+                    missingFields.AppendLine(Validate.Message);
 
                 if (string.IsNullOrEmpty(missingFields.ToString())) //if it's empty, no errors
                     return true;
@@ -67,22 +67,22 @@ namespace Project
             }
            
         }
-        private Item Item { get; set; }
+        public Item Item { get; set; }
 
         private void done_Click(object sender, RoutedEventArgs e)
         {
-
             // if check items passed test
             if (CheckItemFields())
             {
-                Item = new Item()
+                bool temp = int.TryParse(minQtyNumber.Text, out var a);
+                const int defaultMin = 1;
+
+                Item = new Item(txtName.Text, int.Parse(availableQtyNumber.Text))
                 {
-                    ItemName = txtName.Text,
-                    AvailableItemQty = int.Parse(availableQtyNumber.Text),
-                    MinItemQty = int.Parse(minQtyNumber.Text),
-                    Location = int.Parse(locationNumber.Text),
-                    Supplier = cmbSuppliers.SelectedItem.ToString(),
-                    Category = cmbCategories.SelectedItem.ToString()
+                    MinItemQty = temp ? int.Parse(minQtyNumber.Text) : defaultMin,
+                    Location = locationNumber.Text,
+                    Supplier = cmbSuppliers.SelectedItem as string,
+                    Category = cmbCategories.SelectedItem as string
                 };
 
                 Close();

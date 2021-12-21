@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Models
 {
-    public class CategoriesList
+    public static class CategoriesList
     {
         private enum categories
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -34,15 +35,14 @@ namespace Project
             }
         }
 
-        private void addItem_Click(object sender, RoutedEventArgs e)
+        private void done_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckItemFields())
-            {
+            bool valid = CheckItemFields();
 
-            }
-            else
+            if (!valid)
                 MessageBox.Show("Invalid changes won't be saved");
-
+            else
+                Close();
         }
 
         private bool CheckItemFields()
@@ -51,14 +51,14 @@ namespace Project
             {
                 StringBuilder missingFields = new StringBuilder();
 
-                if (Validation.ValidateItemName(txtName.Text))
-                    missingFields.AppendLine(Validation.Message);
+                if (Validate.ValidateItemName(txtName.Text))
+                    missingFields.AppendLine(Validate.Message);
 
-                if (Validation.ValidateAvailableQuantity(availableQtyNumber.Text))
-                    missingFields.AppendLine(Validation.Message);
+                if (Validate.ValidateAvailableQuantity(availableQtyNumber.Text))
+                    missingFields.AppendLine(Validate.Message);
 
-                if (Validation.ValidateMinimumQuantity(minQtyNumber.Text))
-                    missingFields.AppendLine(Validation.Message);
+                if (Validate.ValidateMinimumQuantity(minQtyNumber.Text))
+                    missingFields.AppendLine(Validate.Message);
 
                 if (string.IsNullOrEmpty(missingFields.ToString())) //if it's empty, no errors
                     return true;
@@ -69,7 +69,7 @@ namespace Project
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.Message);
                 return false;
             }
         }
