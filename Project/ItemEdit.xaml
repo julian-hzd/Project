@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        Title="ItemEdit" Height="400" Width="450" >
+        Title="Edit Item" Height="400" Width="450" >
 
     <Grid x:Name="grItemEdit">
         
