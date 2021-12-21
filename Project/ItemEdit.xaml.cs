@@ -19,10 +19,12 @@ namespace Project
     /// </summary>
     public partial class ItemEdit : Window
     {
+        private Item _item;
         public ItemEdit(Item item)
         {
             InitializeComponent();
 
+            _item= item;
             dgItems.DataContext = item;
         }
 
@@ -42,7 +44,12 @@ namespace Project
             if (!valid)
                 MessageBox.Show("Invalid changes won't be saved");
             else
+            {
+                if(_item.AvailableItemQty>=_item.MinItemQty)
+                    Inventory._shoppingList.Remove(_item);
                 Close();
+
+            }
         }
 
         private bool CheckItemFields()

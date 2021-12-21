@@ -121,6 +121,8 @@ namespace Project
 
         }
 
+       
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             saved = true;
@@ -138,15 +140,20 @@ namespace Project
 
         private void lbItems_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
-        private void load_Click_1(object sender, RoutedEventArgs e)
+        private void load_Click(object sender, RoutedEventArgs e)
         {
 
         }
+        private void shoppingList_Click(object sender, RoutedEventArgs e)
+        {
+            ShoppingList shoppingList = new ShoppingList(Inventory._shoppingList);
+            shoppingList.ShowDialog();
+        }
 
-        private void save_Click_1(object sender, RoutedEventArgs e)
+        private void save_Click(object sender, RoutedEventArgs e)
         {
 
         }
