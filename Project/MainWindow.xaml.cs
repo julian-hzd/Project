@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Project.Models;
+using Microsoft.Win32;
 
 namespace Project
 {
@@ -24,6 +25,7 @@ namespace Project
 
         private Inventory inventory = new Inventory();
         private const string NO_SELECT = "Please select an item";
+        private string saveLocation = string.Empty;
         private bool saved = false;
         public MainWindow()
         {
@@ -123,7 +125,17 @@ namespace Project
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            saved = true;
+            //check save location
+            if (string.IsNullOrEmpty(saveLocation))
+            {
+                SaveFileDialog save = new SaveFileDialog();
+                save.Filter = "CSV Files|*.csv";
+                if(save.ShowDialog() == true)
+                {
+                    saveLocation = save.FileName;
+
+                }
+            }
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
@@ -137,16 +149,6 @@ namespace Project
         }
 
         private void lbItems_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void load_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void save_Click_1(object sender, RoutedEventArgs e)
         {
 
         }

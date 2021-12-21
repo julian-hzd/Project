@@ -24,9 +24,14 @@ namespace Project.Models
         {
             itemsList.Remove(item);
         }
+        public void GeneralReport()
+        {
+            foreach (Item item in itemsList)
+            {
 
+            }
+        }
         /*
-         Update item 
          General Report
          Shopping List
          Load Items
