@@ -43,8 +43,8 @@
             <!--Print Tab-->
             <Menu Grid.Column="1" Width="40" HorizontalAlignment="Left" Background="AntiqueWhite">
                 <MenuItem Header="Print" FontWeight="Bold" Foreground="Black" BorderBrush="DarkBlue">
-                    <MenuItem Header="General Report" Click="generalReport_Click" Foreground="Black" BorderBrush="DarkBlue" Background="AntiqueWhite"></MenuItem>
-                    <MenuItem Header="Shopping List" Click="shoppingList_Click" Foreground="Black" BorderBrush="DarkBlue" Background="AntiqueWhite"></MenuItem>
+                    <MenuItem Header="General Report" Click="GeneralReport_Click" Foreground="Black" BorderBrush="DarkBlue" Background="AntiqueWhite"></MenuItem>
+                    <MenuItem Header="Shopping List" Click="ShoppingList_Click" Foreground="Black" BorderBrush="DarkBlue" Background="AntiqueWhite"></MenuItem>
                 </MenuItem>
             </Menu>
 

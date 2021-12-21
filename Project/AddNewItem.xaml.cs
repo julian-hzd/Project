@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Project.Models;
 
 namespace Project
@@ -20,13 +11,10 @@ namespace Project
 
     public partial class AddNewItem : Window
     {
+        #region CONSTRUCTOR
         public AddNewItem()
         {
             InitializeComponent();
-
-            //read fields
-            //validate
-            //create and return an item instance with the info provided
 
             cmbSuppliers.ItemsSource = SuppliersList.GetSuppliers(); //load suppliers from class
             cmbCategories.ItemsSource = CategoriesList.GetCategories(); //load category from class
@@ -36,8 +24,9 @@ namespace Project
 
             if (cmbCategories.ItemsSource == null) //backup
                 cmbCategories.ItemsSource = Data.LoadCategories();
-
         }
+        #endregion
+        #region VALIDATION
         private bool CheckItemFields() //Combo boxes can be null
         {
             try
@@ -70,14 +59,15 @@ namespace Project
             }
            
         }
+        #endregion
+        #region ADDING ITEM
         public Item Item { get; set; }
-
-        private void done_Click(object sender, RoutedEventArgs e)
+        private void Done_Click(object sender, RoutedEventArgs e)
         {
             // if check items passed test
             if (CheckItemFields())
             {
-                bool temp = int.TryParse(minQtyNumber.Text, out var a);
+                bool temp = int.TryParse(minQtyNumber.Text, out _);
                 const int defaultMin = 1;
 
                 Item = new Item(txtName.Text, int.Parse(availableQtyNumber.Text))
@@ -93,5 +83,6 @@ namespace Project
             else
                 return;
         }
+        #endregion
     }
 }

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Project.Models
 {
     internal static class Data // Static, Utility class, no instances need to be created
     {
+        #region FETCHING INFO FROM FILE
         private static string GetSuppliers(string fileName = "../TestFiles/Suppliers.csv") // No need to let these methods public, they are accessed on loadsuppliers
         {
             if (File.Exists(fileName))
@@ -39,6 +36,8 @@ namespace Project.Models
             }
             return null;
         }
+        #endregion
+        #region LOADING INFO
         public static string[] LoadSuppliers() //In case supplier class fails, read from Suppliers.csv
         {
             string[] suppliers = GetSuppliers().Split(',');
@@ -56,7 +55,7 @@ namespace Project.Models
                 return categories;
 
             return null;
-
         }
+        #endregion
     }
 }

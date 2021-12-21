@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Project.Models;
 using Microsoft.Win32;
 using System.IO;
@@ -23,17 +12,21 @@ namespace Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region DATA FIELDS
         private Inventory inventory = new Inventory();
         private const string NO_SELECT = "Please select an item";
         private string saveLocation = string.Empty;
         private bool saved = true;
+        #endregion
+        #region CONSTRUCTOR
         public MainWindow()
         {
             InitializeComponent();
 
             lbItems.ItemsSource = inventory.Items;
         }
-
+        #endregion
+        #region BUTTONS
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             AddNewItem addItem = new AddNewItem(); // set combo boxes 
@@ -46,7 +39,6 @@ namespace Project
                 saved = false;
             }
         }
-
         private void EditClick(object sender, RoutedEventArgs e)            //Not working properly the item edit, I asked aref
         {
             Item temp = lbItems.SelectedItem as Item;               //List box is visitor so no need to check
@@ -62,7 +54,6 @@ namespace Project
             else
                 MessageBox.Show(NO_SELECT, "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
-
         private void Dlt_Click(object sender, RoutedEventArgs e)
         {
             Item temp = lbItems.SelectedItem as Item;
@@ -76,7 +67,6 @@ namespace Project
             else
                 MessageBox.Show(NO_SELECT, "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
-
         private void QtyIncrease_Click(object sender, RoutedEventArgs e)
         {
             Item temp = lbItems.SelectedItem as Item;
@@ -124,6 +114,8 @@ namespace Project
                 MessageBox.Show("There are no items in the inventory tracker", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+        #endregion
+        #region SAVE FUNCTIONALITY
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             if (inventory.Items.Count == 0)
@@ -176,12 +168,16 @@ namespace Project
                 }
             }
         }
+        #endregion
+        #region LOAD FUNCTIONALITY
         private void Load_Click(object sender, RoutedEventArgs e)
         {
             if (CheckIfSaved())
             {
-                OpenFileDialog open = new OpenFileDialog();
-                open.Filter = "CSV Files|*.csv";
+                OpenFileDialog open = new OpenFileDialog
+                {
+                    Filter = "CSV Files|*.csv"
+                };
 
                 if (open.ShowDialog() == true)
                 {
@@ -233,20 +229,24 @@ namespace Project
                 throw;
             }
         }
-        private void generalReport_Click(object sender, RoutedEventArgs e)
+        #endregion
+        #region PRINT FUNCTIONALITIES
+        private void GeneralReport_Click(object sender, RoutedEventArgs e)
         {
             GeneralReport generalReport = new GeneralReport(inventory.Items);
             generalReport.ShowDialog();
         }
-        private void shoppingList_Click(object sender, RoutedEventArgs e)
+        private void ShoppingList_Click(object sender, RoutedEventArgs e)
         {
             ShoppingList shoppingList = new ShoppingList(inventory.Items);
             shoppingList.ShowDialog();
         }
-
+        #endregion
+        #region SAVE BEFORE CLOSING
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = !CheckIfSaved();
         }
+        #endregion
     }
 }

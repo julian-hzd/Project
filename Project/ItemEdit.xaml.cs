@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Project.Models;
 namespace Project
 {
@@ -19,14 +10,16 @@ namespace Project
     /// </summary>
     public partial class ItemEdit : Window
     {
+        #region CONSTRUCTOR
         public ItemEdit(Item item)
         {
             InitializeComponent();
 
             dgItems.DataContext = item;
         }
-
-        private void clear_Click(object sender, RoutedEventArgs e)
+        #endregion
+        #region BUTTONS
+        private void Clear_Click(object sender, RoutedEventArgs e)
         {
             foreach (object obj in dgItems.Children)
             {
@@ -34,8 +27,7 @@ namespace Project
                     (obj as TextBox).Clear();
             }
         }
-
-        private void done_Click(object sender, RoutedEventArgs e)
+        private void Done_Click(object sender, RoutedEventArgs e)
         {
             bool valid = CheckItemFields();
 
@@ -44,6 +36,8 @@ namespace Project
             else
                 Close();
         }
+        #endregion
+        #region VALIDATION
         private bool CheckItemFields()
         {
             try
@@ -75,5 +69,6 @@ namespace Project
                 return false;
             }
         }
+        #endregion
     }
 }

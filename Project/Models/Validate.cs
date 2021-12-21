@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Project.Models
+﻿namespace Project.Models
 {
     public static class Validate
     {
         public static string Message { get; set; }
+        #region PUBLIC METHODS
         public static bool ValidateItemName(string itemName)
         {
             if (string.IsNullOrEmpty(itemName))
@@ -45,7 +40,7 @@ namespace Project.Models
         }
         public static bool ValidateMinimumQuantity(string quantity)
         {
-            if (quantity == String.Empty)
+            if (quantity == string.Empty)
                 return false;
 
             else
@@ -69,7 +64,8 @@ namespace Project.Models
             
             return false;
         }
-
+        #endregion
+        #region PRIVATE METHODS
         private static bool ValidateString(string string_)  // "Eg2gs" is not valid
         {
             foreach (char letter in string_)
@@ -81,7 +77,7 @@ namespace Project.Models
         }
         private static bool ValidateNumber(string number)
         {
-            if (int.TryParse(number, out int result)) //if number is integer
+            if (int.TryParse(number, out _)) //if number is integer
                 return false;
 
             return true;
@@ -100,5 +96,6 @@ namespace Project.Models
 
             return true;
         }
+        #endregion
     }
 }

@@ -31,7 +31,7 @@
             <TextBlock Text="Category" FontSize="14" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center"/>
             <ComboBox Cursor="Hand" x:Name="cmbCategories" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
 
-            <Button Height="30" Content="Done" Margin="0,15,0,0" x:Name="done" Click="done_Click" Width="60"/>
+            <Button Height="30" Content="Done" Margin="0,15,0,0" x:Name="done" Click="Done_Click" Width="60"/>
         </StackPanel>
 
     </Grid>

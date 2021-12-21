@@ -33,8 +33,8 @@
             <TextBlock Foreground="Black" FontWeight="Bold" Text="Category" HorizontalAlignment="Center"></TextBlock>
             <TextBox x:Name="cmbCategories" Text="{Binding Category}" Margin="0,6,0,0" Width="100"></TextBox>
 
-            <Button Width="100" Click="clear_Click" Height="18" Margin="0,10,0,0" Content="Clear"/>
-            <Button Width="100" Click="done_Click" Height="18" Margin="0,10,0,0" Content="Done"/>
+            <Button Width="100" Click="Clear_Click" Height="18" Margin="0,10,0,0" Content="Clear"/>
+            <Button Width="100" Click="Done_Click" Height="18" Margin="0,10,0,0" Content="Done"/>
             
         </StackPanel>
     </Grid>

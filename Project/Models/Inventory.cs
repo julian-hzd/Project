@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Project.Models;
+﻿using System.Collections.Generic;
 
 namespace Project.Models
 {
@@ -13,7 +8,7 @@ namespace Project.Models
         public List<Item> Items
         {
             get { return itemsList; }
-            set { itemsList = value; } // not sure if we should have a set here
+            set { itemsList = value; }
         }
         public void AddItem(Item item)
         {
@@ -23,23 +18,5 @@ namespace Project.Models
         {
             itemsList.Remove(item);
         }
-        /*
-         General Report
-         Shopping List
-         Load Items
-         Save Items
-
-        Hint
-        C# classes File and Directory offer many methods that provide 
-        several functionalities. These can ease implementation in your app. 
-
-        Reading and writing to files. 
-
-        Creating files and deleting files. 
-
-        Creating and deleting directories. 
-
-        Checking content of directories. 
-         */
     }
 }
