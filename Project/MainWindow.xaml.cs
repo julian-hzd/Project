@@ -122,9 +122,6 @@ namespace Project
             }
 
         }
-
-       
-
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             //check save location
@@ -139,7 +136,6 @@ namespace Project
                 }
             }
         }
-
         private void Load_Click(object sender, RoutedEventArgs e)
         {
 
