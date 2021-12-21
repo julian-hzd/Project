@@ -102,6 +102,13 @@ namespace Project.Models
             set { _category = value; }
         }
         #endregion
+        public string CSVItem
+        {
+            get { return string.Format($"{ItemName},{AvailableItemQty},{MinItemQty},{Location},{Supplier},{Category}"); }
+            set
+            {
 
+            }
+        }
     }
 }

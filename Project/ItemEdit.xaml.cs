@@ -42,7 +42,7 @@ namespace Project
             bool valid = CheckItemFields();
 
             if (!valid)
-                MessageBox.Show("Invalid changes won't be saved");
+                return;
             else
                 Close();
         }
