@@ -22,7 +22,6 @@ namespace Project
     /// </summary>
     public partial class MainWindow : Window
     {
-
         private Inventory inventory = new Inventory();
         private const string NO_SELECT = "Please select an item";
         private string saveLocation = string.Empty;
@@ -87,8 +86,6 @@ namespace Project
             else
             {
                 temp.AvailableItemQty++;
-                if(temp.AvailableItemQty>=temp.MinItemQty)
-                    Inventory._shoppingList.Remove(temp);
                 lbItems.Items.Refresh();
             }
 
@@ -104,14 +101,12 @@ namespace Project
             {
                 MessageBox.Show("Item Quantity cannot be negative");
             }
+
             else
             {
                 temp.AvailableItemQty--;                                     //If button is clicked without selecting item, crashes fix, same above
-                if(temp.AvailableItemQty < temp.MinItemQty)
-                    Inventory._shoppingList.Add(temp);
                 lbItems.Items.Refresh();
             }
-
         }
         private void Clear_Click(object sender, RoutedEventArgs e) //sad
         {
@@ -124,11 +119,7 @@ namespace Project
             {
                 MessageBox.Show("There are no items in the inventory tracker");
             }
-
         }
-
-       
-
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             //check save location
@@ -143,24 +134,19 @@ namespace Project
                 }
             }
         }
-
         private void Load_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void lbItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void generalReport_Click(object sender, RoutedEventArgs e)
         {
-
+            GeneralReport generalReport = new GeneralReport(inventory.Items);
+            generalReport.ShowDialog();
         }
         private void shoppingList_Click(object sender, RoutedEventArgs e)
         {
-            ShoppingList shoppingList = new ShoppingList(Inventory._shoppingList);
+            ShoppingList shoppingList = new ShoppingList(inventory.Items);
             shoppingList.ShowDialog();
-        }
-        private void lbItems_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            
         }
     }
 }

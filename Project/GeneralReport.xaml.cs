@@ -16,23 +16,15 @@ using Project.Models;
 namespace Project
 {
     /// <summary>
-    /// Interaction logic for ShoppingList.xaml
+    /// Interaction logic for GeneralReport.xaml
     /// </summary>
-    public partial class ShoppingList : Window
+    public partial class GeneralReport : Window
     {
-        public ShoppingList(List<Item> items)
+        public GeneralReport(List<Item> items)
         {
             InitializeComponent();
 
-            List<Item> shoppingList = new List<Item>();
-
-            foreach(var item in items)
-            {
-                if(item.AvailableItemQty < item.MinItemQty)
-                    shoppingList.Add(item);
-            }
-
-            McDataGrid.ItemsSource = shoppingList;
+            McDataGrid.ItemsSource = items;
         }
     }
 }

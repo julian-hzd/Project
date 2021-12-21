@@ -10,7 +10,7 @@ namespace Project.Models
     internal class Inventory
     {
         private List<Item> itemsList = new List<Item>();
-        public static List<Item> _shoppingList = new List<Item>();
+        public static List<Item> shoppingList = new List<Item>();
 
         public List<Item> Items
         {
@@ -21,7 +21,7 @@ namespace Project.Models
         {
             itemsList.Add(item);
             if(item.AvailableItemQty < item.MinItemQty)     //When an item is added check if it should go on the shopping list
-                _shoppingList.Add(item);
+                shoppingList.Add(item);
         }
         public void RemoveItem(Item item)
         {
@@ -31,9 +31,7 @@ namespace Project.Models
         {
             foreach (Item item in itemsList)
             {
-
-
-        
+                
             }
         }
         /*

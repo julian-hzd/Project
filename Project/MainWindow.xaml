@@ -6,87 +6,92 @@
         xmlns:local="clr-namespace:Project"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Inventory Tracker" Height="505" Width="940">
+        Title="Inventory Tracker" Height="540" Width="940">
     <Grid>
-        <Grid>
-            
+
+        <Grid x:Name="grContent">
+
+            <!--Background Img-->
+            <Grid.Background>
+                <ImageBrush Stretch="Fill" ImageSource="/Images/snowman.jpg" AlignmentY="Top" AlignmentX="Center"/>
+            </Grid.Background>
+
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".2*"/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32"/>
+                <ColumnDefinition Width="196*"/>
+                <ColumnDefinition Width="196*"/>
+                <ColumnDefinition Width="196*"/>
+                <ColumnDefinition Width="196*"/>
+                <ColumnDefinition Width="32"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Menu Tab-->
+            <Menu Grid.Row="0" Width="32" HorizontalAlignment="Left" Background="AntiqueWhite">
+                <MenuItem Header="File" FontWeight="Bold" Foreground="Purple" BorderBrush="Purple">
+                    <MenuItem Header="Load" x:Name="load" Click="Load_Click" Foreground="Purple" BorderBrush="Purple" Background="AntiqueWhite"></MenuItem>
+                    <MenuItem Header="Save" x:Name="save" Click="Save_Click" Foreground="Purple" BorderBrush="Purple" Background="AntiqueWhite"></MenuItem>
+                </MenuItem>
+            </Menu>
             
-            <Grid x:Name="grContent">
+            <Menu Grid.Column="1" Width="40" HorizontalAlignment="Left" Background="AntiqueWhite">
+                <MenuItem Header="Print" FontWeight="Bold" Foreground="Purple" BorderBrush="Purple">
+                    <MenuItem Header="General Report" Click="generalReport_Click" Foreground="Purple" BorderBrush="Purple" Background="AntiqueWhite"></MenuItem>
+                    <MenuItem Header="Shopping List" Click="shoppingList_Click" Foreground="Purple" BorderBrush="Purple" Background="AntiqueWhite"></MenuItem>
+                </MenuItem>
+            </Menu>
 
-                <Grid.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="/Images/snowman.jpg" AlignmentY="Top" AlignmentX="Center"/>
-                </Grid.Background>
-                
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height=".1*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height=".2*"/>
-                </Grid.RowDefinitions>
+            <!--Title-->
+            <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="87,20,0,330" HorizontalAlignment="Left" Grid.RowSpan="2">
+                <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold" />
+            </StackPanel>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="196*"/>
-                    <ColumnDefinition Width="196*"/>
-                    <ColumnDefinition Width="196*"/>
-                    <ColumnDefinition Width="196*"/>
-                    <ColumnDefinition Width="20*"/>
-                </Grid.ColumnDefinitions>
+            <!--Add, Edit, Delete, Clear-->
+            <Button Click="Add_Click" Content="Add"  BorderBrush="Purple" Height="20" Width="70" Foreground="Purple" Background="LightSlateGray" Grid.Row="3" Grid.Column="2" FontWeight="Bold" Margin="0,20,100,20"/>
+            <Button  Click="EditClick" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"  Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" FontWeight="Bold" Content="Edit" Height="20" Width="70" Margin="100,20,0,20"/>
+            <Button  Click="Dlt_Click" Grid.Column="3"  Grid.Row="3" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Content="Delete" FontWeight="Bold" Height="20" Width="70" Margin="100,20,0,20"/>
+            <Button Click="Clear_Click" Content="Clear"  BorderBrush="Purple" Height="20" Width="70" Foreground="Purple" Background="LightSlateGray" Grid.Row="3" Grid.Column="3" FontWeight="Bold" Margin="0,20,100,20"/>
 
-                <Menu Grid.Row="0"  Background="LightSlateGray">
-                    <MenuItem Header="File" Foreground="Purple" BorderBrush="Purple">
-                        <MenuItem Header="Load" x:Name="load" Click="Load_Click" Foreground="Purple" BorderBrush="Purple" Background="LightSlateGray"></MenuItem>
-                        <MenuItem Header="Save" x:Name="save" Click="Save_Click" Foreground="Purple" BorderBrush="Purple" Background="LightSlateGray"></MenuItem>
-                        <MenuItem Header="ShoppingList" Click="shoppingList_Click" Foreground="Purple" BorderBrush="Purple" Background="LightSlateGray"></MenuItem>
+            <!--Increase, Decrease Qty-->
+            <Button  Click="QtyIncrease_Click" Grid.Column="1" Grid.Row="3" Content="Increase Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="50,20,0,20" />
+            <Button  Click="QtyDecrease_Click" Grid.Column="3" Grid.Row="3" Content="Decrease Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,20,50,20" />
 
-                    </MenuItem>
-                </Menu>
+            <!--Item display-->
+            <ListBox x:Name="lbItems" BorderBrush="Purple" Background="LightSlateGray" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Margin="0,100,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Margin="100,3,0,0">
+                            <TextBlock Text="| Item Name: " FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
+                            <TextBlock Text="{ Binding ItemName }" FontSize="14" Foreground="Beige" />
+                            <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
+                            <TextBlock Margin="20,0,0,0"/>
 
-                <!--Title-->
-                <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="65,0,0,350" HorizontalAlignment="Left" Grid.RowSpan="2">
-                    <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold" />
-                </StackPanel>
+                            <TextBlock Text="| Available Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
+                            <TextBlock Text="{Binding AvailableItemQty}" FontSize="14" Foreground="Beige"/>
+                            <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
+                            <TextBlock Margin="20,0,0,0"/>
 
-                <!--Add, Edit, Delete, Clear-->
-                <Button Click="Add_Click" Content="Add"  BorderBrush="Purple" Height="20" Width="70" Foreground="Purple" Background="LightSlateGray" Grid.Row="3" Grid.Column="2" FontWeight="Bold" Margin="0,20,100,20"/>
-                <Button  Click="EditClick" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"  Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" FontWeight="Bold" Content="Edit" Height="20" Width="70" Margin="100,20,0,20"/>
-                <Button  Click="Dlt_Click" Grid.Column="3"  Grid.Row="3" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Content="Delete" FontWeight="Bold" Height="20" Width="70" Margin="100,20,0,20"/>
-                <Button Click="Clear_Click" Content="Clear"  BorderBrush="Purple" Height="20" Width="70" Foreground="Purple" Background="LightSlateGray" Grid.Row="3" Grid.Column="3" FontWeight="Bold" Margin="0,20,100,20"/>
+                            <TextBlock Text="| Minimum Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
+                            <TextBlock Text="{Binding MinItemQty}" FontSize="14" Foreground="Beige"/>
+                            <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
+                            <TextBlock Margin="20,0,0,0"/>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-                <!--Increase, Decrease-->
-                <Button  Click="QtyIncrease_Click" Grid.Column="1" Grid.Row="3" Content="Increase Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="50,20,0,20" />
-                <Button  Click="QtyDecrease_Click" Grid.Column="3" Grid.Row="3" Content="Decrease Qty" FontWeight="Bold" VerticalAlignment="Center"  Height="20" Width="90" Foreground="Purple" Background="LightSlateGray"  BorderBrush="Purple" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,20,50,20" />
+            <!--Status Bar-->
+            <StackPanel Grid.Row="5" Grid.ColumnSpan="6">
+                <TextBlock Text="Status Bar: " Height="20" Background="AntiqueWhite" Margin="0,0,0,0" FontWeight="Bold"></TextBlock>
+            </StackPanel>
 
-                <!--Item display  darkgrey darkstlateblue slategray, dimgray gainsboro ghostwhite-->
-                <ListBox x:Name="lbItems" BorderBrush="Purple" Background="LightSlateGray" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Margin="0,100,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2" >
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <WrapPanel Margin="30,2,0,0">
-                                <TextBlock Text="| " FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
-                                <TextBlock Grid.Column="2" Grid.Row="1"  Text="Item Name: " FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
-                                <TextBlock Text="{ Binding  ItemName }" FontSize="14" Foreground="Beige" />
-                                <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
-                                <TextBlock Margin="20,0,0,0"/>
-
-                                <TextBlock Text="| Available Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
-                                <TextBlock Text="{Binding  AvailableItemQty}" FontSize="14" Foreground="Beige"/>
-                                <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
-                                <TextBlock Margin="20,0,0,0"/>
-
-                                <TextBlock Text="| Minimum Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="DarkBlue" FontWeight="Bold"  />
-                                <TextBlock Text="{Binding  MinItemQty}" FontSize="14" Foreground="Beige"/>
-                                <TextBlock Text=" |" FontSize="14" Foreground="DarkBlue" FontWeight="Bold" ></TextBlock>
-                                <TextBlock Margin="20,0,0,0"/>
-                            </WrapPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                
-            </Grid>
         </Grid>
 
     </Grid>
