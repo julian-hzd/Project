@@ -102,7 +102,7 @@ namespace Project.Models
         {
             return string.Format($"{ItemName},{AvailableItemQty},{MinItemQty},{Location},{Supplier},{Category}");
         }
-        public void SetCSVItem(string value)
+        public void SetCSVItem(string value) //note this only works from saved csv files from the program
         {
             string[] data = value.Split(',');
 
