@@ -9,20 +9,20 @@ namespace Project.Models
 {
     internal class Inventory
     {
-        private List<Item> _items = new List<Item>();
+        private List<Item> itemsList = new List<Item>();
 
         public List<Item> Items
         {
-            get { return _items; }
-            set { _items = value; } // not sure if we should have a set here
+            get { return itemsList; }
+            set { itemsList = value; } // not sure if we should have a set here
         }
         public void AddItem(Item item)
         {
-            _items.Add(item);
+            itemsList.Add(item);
         }
         public void RemoveItem(Item item)
         {
-            _items.Remove(item);
+            itemsList.Remove(item);
         }
 
         /*

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -19,52 +18,53 @@ namespace Project
     /// </summary>
     public partial class ItemEdit : Window
     {
-        private Supplier _supplier = new Supplier();
         public ItemEdit(Item item)
         {
             InitializeComponent();
 
-            dgItems.DataContext=item;
+            dgItems.DataContext = item;
         }
 
         private void clear_Click(object sender, RoutedEventArgs e)
         {
-            foreach (object obj  in dgItems.Children)
+            foreach (object obj in dgItems.Children)
             {
-                if(obj is TextBox)
+                if (obj is TextBox)
                     (obj as TextBox).Clear();
             }
         }
 
         private void addItem_Click(object sender, RoutedEventArgs e)
         {
-            if(!CheckItemFields())                                                  // Gave them freedom to use numbers on the item name/supplier/category
+            if (CheckItemFields())
+            {
+
+            }
+            else
                 MessageBox.Show("Invalid changes won't be saved");
-            
+
         }
-        private bool CheckItemFields()                                              // Combo boxes can be null
+
+        private bool CheckItemFields()
         {
             try
             {
-                bool numEntered = true;
                 StringBuilder missingFields = new StringBuilder();
 
+                if (Validation.ValidateItemName(txtName.Text))
+                    missingFields.AppendLine(Validation.Message);
 
-                if (!ValidateQty(qtyNum.Text))                                       // Check that quantity are numbers
-                { missingFields.AppendLine("Quantity: only numbers are accepted"); numEntered = false; }
+                if (Validation.ValidateAvailableQuantity(availableQtyNumber.Text))
+                    missingFields.AppendLine(Validation.Message);
 
-                if (!string.IsNullOrEmpty(qtyNum.Text) && numEntered)                                                          // If a number is entered
-                {
-                    if (CheckNumber(qtyNum.Text))
-                        missingFields.AppendLine("Quantity can't be negative");
-                  
-                }
+                if (Validation.ValidateMinimumQuantity(minQtyNumber.Text))
+                    missingFields.AppendLine(Validation.Message);
 
-
-                if (string.IsNullOrEmpty(missingFields.ToString()))                     // if it is not empty, there are errors 
+                if (string.IsNullOrEmpty(missingFields.ToString())) //if it's empty, no errors
                     return true;
 
-                MessageBox.Show(missingFields.ToString(), "Required  Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(missingFields.ToString(), "Required Input", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return false;
             }
             catch (Exception e)
@@ -72,28 +72,6 @@ namespace Project
                 Console.WriteLine(e);
                 return false;
             }
-            
-        }
-        private bool ValidateItemName(string itemName)  // "Eg2gs" is not valid
-        {
-            foreach (char letter in itemName)
-            {
-                if (!char.IsLetter(letter))
-                    return false;
-            }
-            return true;
-        }
-        private bool ValidateQty(string qtyAsString)    //12Hi3 not valid
-        {
-            if (int.TryParse(qtyAsString, out _))
-                return true;
-            return false;
-        }
-        private bool CheckNumber(string numString)
-        {
-            if (int.Parse(numString) < 0)
-                return true;
-            return false;
         }
     }
 }

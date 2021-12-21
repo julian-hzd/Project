@@ -7,9 +7,9 @@ using System.IO;
 
 namespace Project.Models
 {
-    internal static class Data                                                      // Static, Utility class, no instances need to be created
+    internal static class Data // Static, Utility class, no instances need to be created
     {
-        private static string GetSuppliers(string fileName = "./Suppliers.txt")     // No need to let these methods public, they are accessed on loadsuppliers
+        private static string GetSuppliers(string fileName = "../TestFiles/Suppliers.csv") // No need to let these methods public, they are accessed on loadsuppliers
         {
             if (File.Exists(fileName))
             {
@@ -24,7 +24,7 @@ namespace Project.Models
             }
             return null;
         }
-        private static string GetCategories(string fileName = "./Categories.txt")
+        private static string GetCategories(string fileName = "../TestFiles/Categories.csv")
         {
             if (File.Exists(fileName))
             {
@@ -39,18 +39,22 @@ namespace Project.Models
             }
             return null;
         }
-        public static string[] LoadSuppliers()            // In case class supplier class fails, read from file at . level to get suplpiers
+        public static string[] LoadSuppliers() //In case supplier class fails, read from Suppliers.csv
         {
-            string[] suppliers = Data.GetSuppliers().Split(',');
+            string[] suppliers = GetSuppliers().Split(',');
+
             if (suppliers != null)
                 return suppliers;
+
             return null;
         }
-        public static string[] LoadCategories()            // In case class supplier class fails, read from file at . level to get suplpiers
+        public static string[] LoadCategories() //In case category class fails, read from Categories.csv
         {
-            string[] categories = Data.GetCategories().Split(',');
+            string[] categories = GetCategories().Split(',');
+
             if (categories != null)
                 return categories;
+
             return null;
 
         }

@@ -7,20 +7,31 @@
         mc:Ignorable="d"
         Title="AddNewItem" Height="450" Width="800">
     <Grid>
-        <!--Item Name field-->
+
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="/snow.jpg" AlignmentY="Top" AlignmentX="Center"/>
+            <ImageBrush Stretch="Fill" ImageSource="./Images/snow.jpg" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
+
         <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="Item Name" FontSize="14" Foreground="Black" FontWeight="DemiBold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBlock Text="Item Name" FontSize="14" Foreground="Black" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
             <TextBox x:Name="txtName" Width="150" Margin="0,5,0,0"/>
-            <TextBlock Text="Quantity" FontSize="14" Foreground="Black" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="qtyNumber" Width="150" Margin="0,5,0,0"/>
-            <TextBlock Text="Supplier" FontSize="14" Foreground="MediumAquamarine" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Available Quantity" FontSize="14" Foreground="Black" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="availableQtyNumber" Width="150" Margin="0,5,0,0"/>
+
+            <TextBlock Text="Minimum Quantity" FontSize="14" Foreground="Black" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="minQtyNumber" Width="150" Margin="0,5,0,0"/>
+
+            <TextBlock Text="Isle Number / Location" FontSize="14" Foreground="Black" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="locationNumber" Width="150" Margin="0,5,0,0"/>
+
+            <TextBlock Text="Supplier" FontSize="14" Foreground="Black" FontWeight="Bold"  Margin="0,0,5,0" HorizontalAlignment="Center"/>
             <ComboBox Cursor="Hand" x:Name="cmbSuppliers" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
-            <TextBlock  Text="Categories" FontSize="14" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Category" FontSize="14" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center"/>
             <ComboBox Cursor="Hand" x:Name="cmbCategories" Width="150" Margin="0,5,0,5" BorderBrush="Aquamarine" Foreground="Navy"/>
-            <Button Height="30" Content="Done" Margin="0,15,0,0" x:Name="done" Click="done_Click" Width="40"/>
+
+            <Button Height="30" Content="Done" Margin="0,15,0,0" x:Name="done" Click="done_Click" Width="60"/>
         </StackPanel>
 
     </Grid>

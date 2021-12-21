@@ -86,11 +86,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoriesList.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\SuppliersList.cs" />
+    <Compile Include="Models\Validation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -128,6 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ok.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ok.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\snow.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

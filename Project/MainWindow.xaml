@@ -36,8 +36,8 @@
             <TextBlock Foreground="MintCream" Text="Inventory Tracker" FontSize="32" FontWeight="Bold" />
         </StackPanel>
 
-       
-        
+
+
         <!--Load Save-->
         <Button Foreground="LightCoral" Click="Save_Click" Grid.Column="4" Grid.Row="6" Height="25" Width="70" Content="Save" Background="Azure" BorderBrush="Azure"/>
         <Button Foreground="Crimson" Click="Load_Click" Grid.Column="3" Grid.Row="6" Height="25" Width="70" Content="Load" Background="Azure" BorderBrush="Azure"/>
@@ -56,7 +56,7 @@
         <!--Increase, Decrease-->
         <Button  Click="QtyIncrease_Click" Grid.Column="0" Grid.Row="7" Content="+" VerticalAlignment="Center"  Height="20" Width="70" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" />
         <Button  Click="QtyDecrease_Click" Grid.Column="5" Grid.Row="7" Content="-" VerticalAlignment="Center"  Height="25" Width="70" Foreground="LightCoral" Background="Azure" BorderBrush="Azure" />
-        
+
         <!--Item display  darkgrey darkorchid seaGREEN darkstlateblue slategray, dimgray gainsboro ghostwhite-->
         <ListBox x:Name="lbItems" BorderBrush="Black" Background="DarkGray" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4"   Margin="0,25,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListBox.ItemTemplate>
@@ -65,19 +65,19 @@
                     <WrapPanel Margin="30,2,0,0">
                         <TextBlock Grid.Column="2" Grid.Row="1"  Text="Item Name: " FontSize="14" Foreground="Black" FontWeight="Bold"  />
                         <TextBlock Text="{ Binding  ItemName }" FontSize="14" Foreground="Aqua" />
-                        
+
                         <TextBlock Margin="20,0,0,0"/>
                         <TextBlock Text="| Quantity: " Grid.Column="4"  Grid.Row="1" FontSize="14" Foreground="Black" FontWeight="Bold"  />
                         <TextBlock Text="{Binding  ItemQty}" FontSize="14" Foreground="Turquoise"/>
                         <TextBlock Margin="20,0,0,0"/>
-                        
+
                         <TextBlock Text=" | Supplier: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="Black" FontWeight="Bold"  />
                         <TextBlock Text= "{Binding  SupplierString}" FontSize="14"  Foreground="SpringGreen"   />
                         <TextBlock Margin="20,0,0,0"/>
-                        
+
                         <TextBlock Text=" | Category: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
                         <TextBlock Text="{Binding CategoryString}" FontSize="14" Foreground="SpringGreen" />
-                        
+
                         <TextBlock Text=" | Isle Number: " Grid.Column="5" Grid.Row="1" FontSize="14" Foreground="SeaShell" FontWeight="Bold"  />
                         <TextBlock Text="{Binding IsleNumber}" FontSize="14" Foreground="SpringGreen" />
                     </WrapPanel>

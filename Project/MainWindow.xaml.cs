@@ -22,7 +22,7 @@ namespace Project
     public partial class MainWindow : Window
     {
         
-        private Supplier _supplier=new Supplier();
+        private SuppliersList _supplier=new SuppliersList();
         private Inventory _inventory = new Inventory();
         public MainWindow()
         {
@@ -56,7 +56,7 @@ namespace Project
             
             if (temp != null)
             {
-                if (temp.ItemQty != Item.MINQTY)                           // Not sure if this should be here
+                if (temp.AvailableItemQty != Item._minItemQty)                           // Not sure if this should be here
                 {
                     _inventory.RemoveItem(temp);
                     lbItems.Items.Refresh();
@@ -73,7 +73,7 @@ namespace Project
                 MessageBox.Show("Please select an item");
             else
             {
-                temp.ItemQty++;
+                temp.AvailableItemQty++;
                 lbItems.Items.Refresh();
             }
             
@@ -83,9 +83,9 @@ namespace Project
             Item temp = lbItems.SelectedItem as Item;
             if(temp==null)
                 MessageBox.Show("Please select an item");
-          else if(temp.ItemQty!=1)
+          else if(temp.AvailableItemQty!=1)
             {
-                temp.ItemQty--;                                     //If button is clicked without selecting item, crashes fix, same above
+                temp.AvailableItemQty--;                                     //If button is clicked without selecting item, crashes fix, same above
                 lbItems.Items.Refresh();
             }          
 
@@ -105,6 +105,16 @@ namespace Project
         {
             _inventory.Items.Clear();
             lbItems.Items.Refresh();
+        }
+
+        private void lbItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void lbItems_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

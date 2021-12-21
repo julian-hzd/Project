@@ -13,29 +13,28 @@
         </Grid.Background>
         <StackPanel x:Name="dgItems" Width="250" Height="300" >
 
-
-            <TextBlock  Foreground="Snow" FontWeight="Bold" Text="Item name" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Foreground="Black" FontWeight="Bold" Text="Item Name" HorizontalAlignment="Center"></TextBlock>
             <TextBox x:Name="txtName" Text="{Binding ItemName}" Margin="0,6,0,0" Width="100"></TextBox>
 
-            <TextBlock  Foreground="Purple" FontWeight="DemiBold" Text="Quantity" HorizontalAlignment="Center"></TextBlock>
-            <TextBox x:Name="qtyNum" Text="{Binding ItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
+            <TextBlock Foreground="Black" FontWeight="Bold" Text="Available Quantity" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="availableQtyNumber" Text="{Binding ItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
 
+            <TextBlock Foreground="Black" FontWeight="Bold" Text="Minimum Quantity" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="minQtyNumber" Text="{Binding MinItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
 
-            <TextBlock  Foreground="LimeGreen" FontWeight="DemiBold" Text="Supplier" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SupplierString}" Margin="0,6,0,0" Width="100"></TextBox>
+            <TextBlock Foreground="Black" FontWeight="Bold" Text="Isle Number / Location" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="locationNumber" Text="{Binding IsleNumber}" Margin="0,6,0,0" Width="100"></TextBox>
 
-            <TextBlock Foreground="SlateBlue" FontWeight="DemiBold" Text="Category" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding CategoryString}" Margin="0,6,0,0" Width="100"></TextBox>
+            <TextBlock Foreground="Black" FontWeight="Bold" Text="Supplier" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="cmbSuppliers" Text="{Binding SupplierString}" Margin="0,6,0,0" Width="100"></TextBox>
 
-            <TextBlock Foreground="PaleVioletRed" FontWeight="DemiBold" Text="Isle location" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding IsleNumber}" Margin="0,6,0,0" Width="100"></TextBox>
-
-            <TextBlock Foreground="Blue" FontWeight="DemiBold" Text="Minimum quantity" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding MinItemQty}" Margin="0,6,0,0" Width="100"></TextBox>
+            <TextBlock Foreground="Black" FontWeight="Bold" Text="Category" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="cmbCategories" Text="{Binding CategoryString}" Margin="0,6,0,0" Width="100"></TextBox>
 
             <Button Width="100" Click="clear_Click" Height="18" Margin="0,10,0,0" Content="Clear"/>
             <Button Width="100" Click="addItem_Click" Height="18" Margin="0,10,0,0" Content="Add"/>
+            
         </StackPanel>
     </Grid>
-    
+
 </Window>
