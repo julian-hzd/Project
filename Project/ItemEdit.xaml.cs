@@ -19,12 +19,10 @@ namespace Project
     /// </summary>
     public partial class ItemEdit : Window
     {
-        private Item _item;
         public ItemEdit(Item item)
         {
             InitializeComponent();
 
-            _item= item;
             dgItems.DataContext = item;
         }
 
@@ -58,8 +56,11 @@ namespace Project
                 if (Validate.ValidateAvailableQuantity(availableQtyNumber.Text))
                     missingFields.AppendLine(Validate.Message);
 
-                if (Validate.ValidateMinimumQuantity(minQtyNumber.Text))
-                    missingFields.AppendLine(Validate.Message);
+                if (minQtyNumber.Text != string.Empty)
+                {
+                    if (Validate.ValidateMinimumQuantity(minQtyNumber.Text))
+                        missingFields.AppendLine(Validate.Message);
+                }
 
                 if (string.IsNullOrEmpty(missingFields.ToString())) //if it's empty, no errors
                     return true;

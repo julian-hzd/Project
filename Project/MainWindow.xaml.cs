@@ -162,7 +162,8 @@ namespace Project
 
                     foreach (Item item in inventory.Items)
                     {
-                        itemsInfo.AppendLine(item.CSVItem);
+
+                        itemsInfo.AppendLine(item.GetCSVItem());
                     }
 
                     File.WriteAllText(saveLocation, itemsInfo.ToString());
@@ -222,7 +223,8 @@ namespace Project
                 string[] values = File.ReadAllLines(saveLocation);
                 foreach (string item in values)
                 {
-                    Item temp = new Item() { CSVItem = item };
+                    Item temp = new Item();
+                    temp.SetCSVItem(item);
                     inventory.Items.Add(temp);
                 }
             }

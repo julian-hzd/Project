@@ -50,8 +50,11 @@ namespace Project
                 if (Validate.ValidateAvailableQuantity(availableQtyNumber.Text))
                     missingFields.AppendLine(Validate.Message);
 
-                if (Validate.ValidateMinimumQuantity(minQtyNumber.Text))
-                    missingFields.AppendLine(Validate.Message);
+                if(minQtyNumber.Text != string.Empty)
+                {
+                    if (Validate.ValidateMinimumQuantity(minQtyNumber.Text))
+                        missingFields.AppendLine(Validate.Message);
+                }
 
                 if (string.IsNullOrEmpty(missingFields.ToString())) //if it's empty, no errors
                     return true;

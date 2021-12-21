@@ -102,27 +102,49 @@ namespace Project.Models
             set { _category = value; }
         }
         #endregion
-        public string CSVItem
+        public string GetCSVItem()
         {
-            get { return string.Format($"{ItemName},{AvailableItemQty},{MinItemQty},{Location},{Supplier},{Category}"); }
-            set
-            {
-                string[] data = value.Split(',');
+            return string.Format($"{ItemName},{AvailableItemQty},{MinItemQty},{Location},{Supplier},{Category}");
+        }
+        public void SetCSVItem(string value)
+        {
+            string[] data = value.Split(',');
 
-                try
-                {
-                    ItemName = data[0];
-                    AvailableItemQty = int.Parse(data[1]);
-                    MinItemQty = int.Parse(data[2]);
-                    Location = data[3];
-                    Supplier = data[4];
-                    Category = data[5];
-                }
-                catch (Exception e)
-                {
-                    throw new Exception("Data is not valid " + e.Message);
-                }
+            try
+            {
+                ItemName = data[0];
+                AvailableItemQty = int.Parse(data[1]);
+                MinItemQty = int.Parse(data[2]);
+                Location = data[3];
+                Supplier = data[4];
+                Category = data[5];
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Data is not valid " + e.Message);
             }
         }
+        //public string CSVItem1
+        //{
+        //    get { return string.Format($"{ItemName},{AvailableItemQty},{MinItemQty},{Location},{Supplier},{Category}"); }
+        //    set
+        //    {
+        //        string[] data = value.Split(',');
+
+        //        try
+        //        {
+        //            ItemName = data[0];
+        //            AvailableItemQty = int.Parse(data[1]);
+        //            MinItemQty = int.Parse(data[2]);
+        //            Location = data[3];
+        //            Supplier = data[4];
+        //            Category = data[5];
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            throw new Exception("Data is not valid " + e.Message);
+        //        }
+        //    }
+        //}
     }
 }
