@@ -45,21 +45,28 @@ namespace Project.Models
         }
         public static bool ValidateMinimumQuantity(string quantity)
         {
-            if (ValidateNumber(quantity))
+            if (quantity == String.Empty)
+                return false;
+
+            else
             {
-                Message = "Minimum Quantity must be a number";
-                return true;
+                if (ValidateNumber(quantity))
+                {
+                    Message = "Minimum Quantity must be a number";
+                    return true;
+                }
+                else if (CheckNegativeNumber(quantity))
+                {
+                    Message = "Minimum Quantity can't be negative";
+                    return true;
+                }
+                else if (ValidateMinQty(quantity))
+                {
+                    Message = "Minimum Quantity can't be less than 1";
+                    return true;
+                }
             }
-            else if (CheckNegativeNumber(quantity))
-            {
-                Message = "Minimum Quantity can't be negative";
-                return true;
-            }
-            else if (ValidateMinQty(quantity))
-            {
-                Message = "Minimum Quantity can't be less than 1";
-                return true;
-            }
+            
             return false;
         }
 
