@@ -71,7 +71,12 @@
             foreach (char letter in string_)
             {
                 if (!char.IsLetter(letter))
+                {
+                    if (letter == ' ')
+                        return true;
+
                     return false;
+                }
             }
             return true;
         }

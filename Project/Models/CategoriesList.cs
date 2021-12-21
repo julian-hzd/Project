@@ -7,7 +7,7 @@ namespace Project.Models
     {
         private enum Categories
         {
-           Pantry, Diary, Drinks, Frozen, Food, Fruits_and_Vegetables, Bakery, Cleaning_Supplies, Other
+            Pantry, Diary, Drinks, Frozen, Food, Fruits_and_Vegetables, Bakery, Cleaning_Supplies, Other
         }
 
         private static List<string> categoriesList = new List<string>();
@@ -15,12 +15,16 @@ namespace Project.Models
 
         public static string[] GetCategories() //Converted to arr for binding purposes 
         {
-            for (int i = 0; i < numberOfCategories; i++)
+            if(categoriesList.Count == 0)
             {
-                categoriesList.Add(((Categories)i).ToString().Replace('_', ' ')); //each value from enum becomes a string and replace occurences of underscore with space
+                for (int i = 0; i < numberOfCategories; i++)
+                {
+                    categoriesList.Add(((Categories)i).ToString().Replace('_', ' ')); //each value from enum becomes a string and replace occurences of underscore with space
+                }
+
+                categoriesList.Insert(0, ""); //first value is null
             }
 
-            categoriesList.Insert(0, ""); //first value is null
             return categoriesList.ToArray();
         }
     }

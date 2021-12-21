@@ -16,7 +16,7 @@ namespace Project
         private Inventory inventory = new Inventory();
         private const string NO_SELECT = "Please select an item";
         private string saveLocation = string.Empty;
-        private bool saved = true;
+        private bool saved = false;
         #endregion
         #region CONSTRUCTOR
         public MainWindow()
