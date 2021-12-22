@@ -71,6 +71,7 @@
             return false;
         }
         #endregion
+
         #region PRIVATE METHODS
         private static bool ValidateString(string string_)  // "Eg2gs" is not valid
         {

@@ -19,6 +19,7 @@ namespace Project.Models
 
         private const int MIN_ITEM_QTY = 1;
         #endregion
+
         #region CONSTRUCTORS
         public Item()                                                               // Default constructor
         {
@@ -46,6 +47,7 @@ namespace Project.Models
             Category = category;
         }
         #endregion
+
         #region PROPERTIES
         public string ItemName
         {
@@ -102,6 +104,7 @@ namespace Project.Models
             set { _category = value; }
         }
         #endregion
+
         #region METHODS
         public string GetCSVItem()
         {

@@ -42,6 +42,7 @@ namespace Project.Models
             return null;
         }
         #endregion
+
         #region LOADING INFO
         public static string[] LoadSuppliers() //In case supplier class fails, read from Suppliers.csv
         {

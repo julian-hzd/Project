@@ -20,6 +20,7 @@ namespace Project
         private string saveLocation = string.Empty;
         private bool saved = false;
         #endregion
+
         #region CONSTRUCTOR
         public MainWindow()
         {
@@ -28,6 +29,7 @@ namespace Project
             lbItems.ItemsSource = inventory.Items;
         }
         #endregion
+
         #region BUTTONS
         private void Add_Click(object sender, RoutedEventArgs e)
         {
@@ -117,6 +119,7 @@ namespace Project
             }
         }
         #endregion
+
         #region SAVE FUNCTIONALITY
         private void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -171,6 +174,7 @@ namespace Project
             }
         }
         #endregion
+
         #region LOAD FUNCTIONALITY
         private void Load_Click(object sender, RoutedEventArgs e)
         {
@@ -233,6 +237,7 @@ namespace Project
             }
         }
         #endregion
+
         #region PRINT FUNCTIONALITIES
         private void GeneralReport_Click(object sender, RoutedEventArgs e)
         {
@@ -245,6 +250,7 @@ namespace Project
             shoppingList.ShowDialog();
         }
         #endregion
+
         #region SAVE BEFORE CLOSING
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

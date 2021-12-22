@@ -18,6 +18,7 @@ namespace Project
             dgItems.DataContext = item;
         }
         #endregion
+
         #region BUTTONS
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
@@ -37,6 +38,7 @@ namespace Project
                 Close();
         }
         #endregion
+
         #region VALIDATION
         private bool CheckItemFields()
         {

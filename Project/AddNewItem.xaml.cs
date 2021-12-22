@@ -26,6 +26,7 @@ namespace Project
                 cmbCategories.ItemsSource = Data.LoadCategories();
         }
         #endregion
+
         #region VALIDATION
         private bool CheckItemFields() //Combo boxes can be null
         {
@@ -60,6 +61,7 @@ namespace Project
            
         }
         #endregion
+
         #region ADDING ITEM
         public Item Item { get; set; }
         private void Done_Click(object sender, RoutedEventArgs e)
